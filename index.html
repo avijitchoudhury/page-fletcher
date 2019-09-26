@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>NBA.com Canada | The official site of the NBA</title>
+         <meta name="description" content="The official site of the National Basketball Association. Your home for scores, schedules, stats, League Pass, video recaps, news, fantasy, rankings and more for NBA players and teams." />                  <link rel="canonical" href="https://ca.nba.com" />                  <meta id="js-timestamp-settings" data-settings="{&quot;longDateFormat&quot;:{&quot;lll&quot;:&quot;MMM D, h:mm A&quot;},&quot;relativeTime&quot;:{&quot;m&quot;:&quot;a minute&quot;,&quot;mm&quot;:&quot;%dm&quot;,&quot;h&quot;:&quot;an hour&quot;,&quot;hh&quot;:&quot;%dh&quot;,&quot;past&quot;:&quot;%s ago&quot;}}" />         <meta id="js-quantcast-settings" data-settings="{&quot;Vendor Screen Reject All Button Text&quot;:&quot;Reject all&quot;,&quot;Vendor Screen Cancel Button Text&quot;:&quot;Cancel&quot;,&quot;Initial Screen Title Text&quot;:&quot;NBA values your privacy&quot;,&quot;Purpose Screen Save and Exit Button Text&quot;:&quot;Save &amp; take me to NBA&quot;,&quot;Purpose Screen Title Text&quot;:&quot;Settings&quot;,&quot;Initial Screen Reject Button Text&quot;:&quot;I do not accept&quot;,&quot;Purpose Screen Header Title Text&quot;:&quot;Settings&quot;,&quot;Vendor Screen Body Text&quot;:&quot;You can set consent preferences for each individual third-party below. Expand each third-party list item to see what purposes they use data for to help make your choices. In some cases, third-parties may disclose that they use your data without asking for your consent, based on their legitimate interests. You can click on their privacy policies for more information and to opt out.&quot;,&quot;Purpose Screen Vendor Link Text&quot;:&quot;See third-party list&quot;,&quot;Vendor Screen Accept All Button Text&quot;:&quot;Accept all&quot;,&quot;Purpose Screen Cancel Button Text&quot;:&quot;Cancel&quot;,&quot;Initial Screen Body Text&quot;:&quot;NBA recognises the importance of your online privacy. We use technology such as cookies to ensure that you have the best experience on our website, in accordance with our &lt;a href=\&quot;https:\/\/www.nba.com\/news\/privacy_policy.html\&quot; target=\&quot;_blank\&quot;&gt;privacy policy&lt;\/a&gt;. We and a number of 3rd parties may also use these technologies to analyse our traffic, and provide personalised content, social media features, and relevant advertising to you.&quot;,&quot;Purpose Screen Enable All Button Text&quot;:&quot;Enable all purposes&quot;,&quot;Purpose Screen Body Text&quot;:&quot;You can set your consent preferences and determine how you want your data to be used by third-parties based on the purposes below. Each purpose has a description so that you know how third-parties use your data.&quot;,&quot;Initial Screen Purpose Link Text&quot;:&quot;Show more settings&quot;,&quot;Initial Screen Accept Button Text&quot;:&quot;OK&quot;,&quot;Vendor Screen Title Text&quot;:&quot;Full third-party list&quot;,&quot;Vendor Screen Purposes Link Text&quot;:&quot;Back to settings&quot;,&quot;Vendor Screen Save and Exit Button Text&quot;:&quot;Save &amp; take me to NBA&quot;}"/>
+        <meta property="fb:app_id" content="117854138246106">
+    <meta property="og:description" content="The official site of the National Basketball Association. Your home for scores, schedules, stats, League Pass, video recaps, news, fantasy, rankings and more for NBA players and teams.">
+    <meta property="og:image" content="https://ca.nba.com/assets/img/social_share_default.png">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:site_name" content="NBA.com Canada | The official site of the NBA">
+    <meta property="og:title" content="NBA.com Canada | The official site of the NBA">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ca.nba.com">
+    <meta property="twitter:site" content="@NBACanada">
+    <meta property="twitter:card" content="summary_large_image">
+        <link href="http://www.sportingnews.com/us/nba" hreflang="x-default" rel="alternate">
+            <link href="http://www.sportingnews.com/us/nba" hreflang="en-US" rel="alternate">
+            <link href="https://www.sportingnews.com/au/nba" hreflang="en-AU" rel="alternate">
+            <link href="http://www.spox.com/de/sport/ussport/nba/index.html" hreflang="de-DE" rel="alternate">
+            <link href="https://www.sportingnews.com/jp/nba" hreflang="ja-JP" rel="alternate">
+            <link href="https://ca.nba.com" hreflang="en-CA" rel="alternate">
+            <link href="https://mx.nba.com" hreflang="es-MX" rel="alternate">
+            <link href="https://in.nba.com" hreflang="en-IN" rel="alternate">
+            <link href="https://ar.nba.com" hreflang="es-AR" rel="alternate">
+            <link href="https://es.nba.com" hreflang="es-ES" rel="alternate">
+    
+        
+        <link rel="stylesheet" href="https://ca.nba.com/assets/css/common.css?v=3.22.0">
+<link rel="stylesheet" href="https://ca.nba.com/assets/css/page-home-page.css?v=3.22.0">
+
+
+        
+        <script src="//assets.adobedtm.com/1d1f22b7fbd1c6b82b92f8fffd66868071b86080/satelliteLib-fba42d9d87585a121167fa2e189f771124ffbf5c.js"></script>
+        <script type="text/javascript">window.digitalData = {"page":{"pageInfo":{"pageName":"ca:main","language":"en","partner":"dazn"},"category":{"primaryCategory":"canada","subCategory1":"ca:main","subCategory2":"canada|nba ca|main"}},"content":{"type":"Homepage"}};</script>
+
+        <script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"WebSite","name":"NBA CA","description":"The official site of the National Basketball Association. Your home for scores, schedules, stats, League Pass, video recaps, news, fantasy, rankings and more for NBA players and teams.","inLanguage":{"@type":"Language","alternateName":"en"},"isFamilyFriendly":true,"url":"ca.nba.com"}</script>
+
+                <script async src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+<script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [], window.ads = [];
+    googletag.cmd.push(function () {
+            googletag.pubads().setTargeting('environment', String("production"));
+            googletag.pubads().setTargeting('sitePlatform', String("ResponsiveP0"));
+            googletag.pubads().setTargeting('version', String("3.22.0"));
+            googletag.pubads().setTargeting('edition', String("EN-CA"));
+            googletag.pubads().setTargeting('adPageName', String("Homepage"));
+            googletag.pubads().setTargeting('pageName', String("home"));
+            googletag.pubads().setTargeting('pageType', String("Homepage"));
+        });
+</script>
+        <style>.async-hide { opacity: 0 !important} </style>
+<script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','gtmDataLayer',4000,
+{'GTM-K6VV8QC':true});</script>
+);
+        <script type="text/javascript">
+window.gdprTextData = {"buttonText":"I Agree","cookiePolicyLink":"http:\/\/www.nba.com\/news\/privacy_policy.html#Cookies","cookiePolicyLinkText":"Cookie Policy","privacyLink":"https:\/\/www.nba.com\/news\/privacy_policy.html","privacyLinkText":"Privacy Policy","termsOfUseLink":"http:\/\/www.nba.com\/news\/termsofuse","termsOfUseLinkText":"Terms of Use","text":"NBA sites use cookies and similar technologies. By using NBA sites, you are agreeing to our revised :privacyPolicy and :termsOfUse, including our :cookiePolicy"};
+window.gdprTextData.text = "NBA sites use cookies and similar technologies. By using NBA sites, you are agreeing to our revised <a target=\"_blank\" href=\"https:\/\/www.nba.com\/news\/privacy_policy.html\">Privacy Policy<\/a> and <a target=\"_blank\" href=\"http:\/\/www.nba.com\/news\/termsofuse\">Terms of Use<\/a>, including our <a target=\"_blank\" href=\"http:\/\/www.nba.com\/news\/privacy_policy.html#Cookies\">Cookie Policy<\/a>";
+</script>
+    </head>
+    <body class="page home-page__page">
+
+        <!-- Google Tag Manager -->
+<script>
+window.gtmDataLayer = window.gtmDataLayer || [];
+
+window.gtmDataLayer.push.apply(window.gtmDataLayer, [
+    {"environment":"production","sitePlatform":"ResponsiveP0","version":"3.22.0","edition":"EN-CA","adPageName":"Homepage","pageName":"home","pageType":"Homepage"}
+]);
+</script>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-K6VV8QC&gtm_cookies_win=x&environment=production&sitePlatform=ResponsiveP0&version=3.22.0&edition=EN-CA&adPageName=Homepage&pageName=home&pageType=Homepage"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id=GTM-K6VV8QC&gtm_cookies_win=x'+dl+'&__='+(new Date().getTime());f.parentNode.insertBefore(j,f);
+})(window,document,'script','gtmDataLayer','GTM-K6VV8QC');</script>
+<!-- End Google Tag Manager -->
+
+
+        <header class="nbap-header__container headroom">
+    <div class="commercial">
+    <div class="commercial__container">
+        <div data-role="ad" data-name="masthead" class="commercial__ad commercial__masthead" data-slot-id="/67970281/DISPLAY_OWNED_GBL/NBA_Responsive_Perform/Homepage/Masthead" data-empty="true">
+    <div  id="placement--5d8c08e2736378.43457730" data-state="unloaded"></div>
+    <script type="text/javascript">
+        window.ads.push({"name":"masthead","slotName":"\/67970281\/DISPLAY_OWNED_GBL\/NBA_Responsive_Perform\/Homepage\/Masthead","uuid":"placement--5d8c08e2736378.43457730","className":"commercial__ad commercial__masthead","defaultSize":[[2,2],[740,50],[980,80],[580,50],[1580,80],[321,50],[480,50]],"position":"Masthead","sizeMapping":[{"viewport":[1580,300],"slot":[1580,80]},{"viewport":[980,250],"slot":[980,80]},{"viewport":[740,100],"slot":[740,50]},{"viewport":[580,70],"slot":[580,50]},{"viewport":[480,50],"slot":[480,50]},{"viewport":[0,0],"slot":[321,50]}],"refreshOnBreakPointChange":true});
+    </script>
+</div>
+    </div>
+</div>
+    <div class="nbap-header__inner-container">
+        <div data-module="global-navigation" data-settings="{&quot;languageCode&quot;:&quot;en&quot;,&quot;siteName&quot;:&quot;NBA CA&quot;,&quot;navigationOptions&quot;:{&quot;language&quot;:&quot;en&quot;,&quot;optionText&quot;:&quot;NBA CA&quot;,&quot;otherLocation&quot;:&quot;https:\/\/www.nba.com\/gr\/reflectIntl.html?gr=canadauw&amp;page=www&amp;dur=ses&quot;,&quot;usLocation&quot;:&quot;https:\/\/www.nba.com\/gr\/reflectIntl.html?gr=canadauw&amp;page=www&amp;&amp;dur=1w&quot;,&quot;editionCookie&quot;:&quot;ca_hp&quot;}}" class="widget-global-navigation">
+    <div id="edition_wrapper" class="edition-picker">
+        <div id="edition" class="edition_open edition-picker__form-container">
+            <form name="editionForm" class="edition-picker__form">
+                <div class="rule"></div>
+                <span class="choose-edition">Please select your default edition</span>
+                <span class="controls">
+                    <input type="radio" name="edition" value="us" onclick="set_HP_default('us');"> US
+                </span>
+            </form>
+        </div>
+        <div id="edition_message" class="edition_closed edition-picker__message">
+            <span class="edition-message">Your default site has been set for 7 days</span>
+        </div>
+    </div>
+    <nav class="nbap-nav nbap-nav--global">
+        <ul class="nbap-nav__menu nbap-nav--global__menu" role="navigation">
+            <li class="nbap-nav__menu-item">
+                <a class="nbap-nav__link" href="javascript:handle_redirect();">NBA.com</a>
+            </li>
+                                                <li class="nbap-nav__menu-item nbap-nav--global__menu-item  js-has-dropdown ">
+                        <a class="nbap-nav__link" title="Teams" href="javascript:void(0);"  >Teams</a>
+                                                    <div class="nbap-nav__dropdown-container js-dropdown-container">
+                                                                    <ul class="nbap-nav__dropdown">
+                                                                                                                                    <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Atlanta" href="https://www.nba.com/hawks/"  target="_blank" rel="noopener noreferrer" >
+                                                        Atlanta
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Boston" href="https://www.nba.com/celtics/"  target="_blank" rel="noopener noreferrer" >
+                                                        Boston
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Brooklyn" href="https://www.nba.com/nets/"  target="_blank" rel="noopener noreferrer" >
+                                                        Brooklyn
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Charlotte" href="https://www.nba.com/hornets/"  target="_blank" rel="noopener noreferrer" >
+                                                        Charlotte
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Chicago" href="https://www.nba.com/bulls/"  target="_blank" rel="noopener noreferrer" >
+                                                        Chicago
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Cleveland" href="https://www.nba.com/cavaliers/"  target="_blank" rel="noopener noreferrer" >
+                                                        Cleveland
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Dallas" href="https://www.nba.com/mavericks/"  target="_blank" rel="noopener noreferrer" >
+                                                        Dallas
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Denver" href="https://www.nba.com/nuggets/"  target="_blank" rel="noopener noreferrer" >
+                                                        Denver
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Detroit" href="https://www.nba.com/pistons/"  target="_blank" rel="noopener noreferrer" >
+                                                        Detroit
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Golden State" href="https://www.nba.com/warriors/"  target="_blank" rel="noopener noreferrer" >
+                                                        Golden State
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Houston" href="https://www.nba.com/rockets/"  target="_blank" rel="noopener noreferrer" >
+                                                        Houston
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Indiana" href="https://www.nba.com/pacers/"  target="_blank" rel="noopener noreferrer" >
+                                                        Indiana
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="LA Clippers" href="https://www.nba.com/clippers/"  target="_blank" rel="noopener noreferrer" >
+                                                        LA Clippers
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="LA Lakers" href="https://www.nba.com/lakers/"  target="_blank" rel="noopener noreferrer" >
+                                                        LA Lakers
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Memphis" href="https://www.nba.com/grizzlies/"  target="_blank" rel="noopener noreferrer" >
+                                                        Memphis
+                                                    </a>
+                                                </li>
+                                                                                                                        </ul>
+                                                                    <ul class="nbap-nav__dropdown">
+                                                                                                                                    <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Miami" href="https://www.nba.com/heat/"  target="_blank" rel="noopener noreferrer" >
+                                                        Miami
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Milwaukee" href="https://www.nba.com/bucks/"  target="_blank" rel="noopener noreferrer" >
+                                                        Milwaukee
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Minnesota" href="https://www.nba.com/timberwolves/"  target="_blank" rel="noopener noreferrer" >
+                                                        Minnesota
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="New Orleans" href="https://www.nba.com/pelicans/"  target="_blank" rel="noopener noreferrer" >
+                                                        New Orleans
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="New York" href="https://www.nba.com/knicks/"  target="_blank" rel="noopener noreferrer" >
+                                                        New York
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Oklahoma City" href="https://www.nba.com/thunder/"  target="_blank" rel="noopener noreferrer" >
+                                                        Oklahoma City
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Orlando" href="https://www.nba.com/magic/"  target="_blank" rel="noopener noreferrer" >
+                                                        Orlando
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Philadelphia" href="https://www.nba.com/sixers/"  target="_blank" rel="noopener noreferrer" >
+                                                        Philadelphia
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Phoenix" href="https://www.nba.com/suns/"  target="_blank" rel="noopener noreferrer" >
+                                                        Phoenix
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Portland" href="https://www.nba.com/blazers/"  target="_blank" rel="noopener noreferrer" >
+                                                        Portland
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Sacramento" href="https://www.nba.com/kings/"  target="_blank" rel="noopener noreferrer" >
+                                                        Sacramento
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="San Antonio" href="https://www.nba.com/spurs/"  target="_blank" rel="noopener noreferrer" >
+                                                        San Antonio
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Toronto" href="https://www.nba.com/raptors/"  target="_blank" rel="noopener noreferrer" >
+                                                        Toronto
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Utah" href="https://www.nba.com/jazz/"  target="_blank" rel="noopener noreferrer" >
+                                                        Utah
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Washington" href="https://www.nba.com/wizards/"  target="_blank" rel="noopener noreferrer" >
+                                                        Washington
+                                                    </a>
+                                                </li>
+                                                                                                                        </ul>
+                                                            </div>
+                                            </li>
+                                                                <li class="nbap-nav__menu-item nbap-nav--global__menu-item  js-has-dropdown ">
+                        <a class="nbap-nav__link" title="Global" href="javascript:void(0);"  >Global</a>
+                                                    <div class="nbap-nav__dropdown-container js-dropdown-container">
+                                                                    <ul class="nbap-nav__dropdown">
+                                                                                                                                    <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Argentina" href="https://ar.nba.com/"  target="_blank" rel="noopener noreferrer" >
+                                                        Argentina
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Australia" href="https://www.nba.com/australia"  target="_blank" rel="noopener noreferrer" >
+                                                        Australia
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Belarus" href="https://by.tribuna.com/nba/"  target="_blank" rel="noopener noreferrer" >
+                                                        Belarus
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Brasil" href="http://www.nba.com/brasil"  target="_blank" rel="noopener noreferrer" >
+                                                        Brasil
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Canada" href="https://ca.nba.com/"  target="_blank" rel="noopener noreferrer" >
+                                                        Canada
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="中国" href="http://www.nba.com/china"  target="_blank" rel="noopener noreferrer" >
+                                                        中国
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="éne-bé-a" href="http://www.nba.com/enebea"  target="_blank" rel="noopener noreferrer" >
+                                                        éne-bé-a
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Deutschland" href="http://www.nba.com/germany"  target="_blank" rel="noopener noreferrer" >
+                                                        Deutschland
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="España" href="https://es.nba.com/"  target="_blank" rel="noopener noreferrer" >
+                                                        España
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="France" href="http://www.nba.com/france"  target="_blank" rel="noopener noreferrer" >
+                                                        France
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="日本" href="https://www.nba.com/japan"  target="_blank" rel="noopener noreferrer" >
+                                                        日本
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="India" href="https://in.nba.com/"  target="_blank" rel="noopener noreferrer" >
+                                                        India
+                                                    </a>
+                                                </li>
+                                                                                                                        </ul>
+                                                                    <ul class="nbap-nav__dropdown">
+                                                                                                                                    <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Israel" href="http://www.nba.com/israel"  target="_blank" rel="noopener noreferrer" >
+                                                        Israel
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Italia" href="http://www.nba.com/italia"  target="_blank" rel="noopener noreferrer" >
+                                                        Italia
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Lithuania" href="http://www.nba.com/lithuania"  target="_blank" rel="noopener noreferrer" >
+                                                        Lithuania
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="" href="http://www.nba.com/arabic"  target="_blank" rel="noopener noreferrer" >
+                                                        MENA
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Mexico" href="https://mx.nba.com/" >
+                                                        Mexico
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Philippines" href="http://www.nba.com/philippines"  target="_blank" rel="noopener noreferrer" >
+                                                        Philippines
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Russia" href="http://www.nba.com/russia"  target="_blank" rel="noopener noreferrer" >
+                                                        Russia
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Taiwan" href="http://www.nba.com/taiwan"  target="_blank" rel="noopener noreferrer" >
+                                                        Taiwan
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Turkey" href="http://www.nba.com/turkiye"  target="_blank" rel="noopener noreferrer" >
+                                                        Turkey
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="United Kingdom" href="http://www.nba.com/uk"  target="_blank" rel="noopener noreferrer" >
+                                                        United Kingdom
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                <li class="nbap-nav__dropdown-item">
+                                                    <a class="nbap-nav__dropdown-link" title="Ukraine" href="https://ua.tribuna.com/nba/"  target="_blank" rel="noopener noreferrer" >
+                                                        Ukraine
+                                                    </a>
+                                                </li>
+                                                                                                                        </ul>
+                                                            </div>
+                                            </li>
+                                                                <li class="nbap-nav__menu-item nbap-nav--global__menu-item ">
+                        <a class="nbap-nav__link" title="" href="javascript:handle_edition();"  >Set Default Edition</a>
+                                            </li>
+                                    </ul>
+    </nav>
+</div>
+        <div data-module="navigation" data-settings="{}" class="widget-navigation">
+    <nav class="nbap-nav nbap-nav--main">
+        <div class="nbap-nav__start">
+            <a href="https://ca.nba.com">
+                <div class="nbap-nav__svg">
+                <svg width="90" height="40" viewBox="0 0 90 40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>webSVG</title><defs><path id="a" d="M0 20V0h17.653v40H0z"/><path id="c" d="M45.946 39.04V.96H.4v38.08h45.546z"/></defs><g fill="none" fill-rule="evenodd"><g transform="translate(11)"><mask id="b" fill="#fff"><use xlink:href="#a"/></mask><path d="M17.653 4.16v31.734c0 2.293-1.866 4.106-4.16 4.106H4.16C1.866 40 0 38.187 0 35.894V4.16A4.165 4.165 0 0 1 4.16 0h9.387c2.24 0 4.106 1.867 4.106 4.16" fill="#FFF" mask="url(#b)"/></g><path d="M24.546 39.04H15.16c-1.76 0-3.2-1.387-3.2-3.146V4.16c0-1.76 1.44-3.2 3.2-3.2h5.333c-1.013.426-1.174.853-1.227 2.293-.16.054-.533-.16-.373.747 0 0 .053.586.267.48-.214 1.493.053 1.653-1.547 1.706l-.053.107c-1.6.16-2.08-.053-3.414 2.667 0 0-.373.853-.48 1.173-.32.694-1.12 2.24-1.333 3.253-.107.321-.266.427-.054.907.321.693-.212.853 1.6.8v.426s-.479.427-.586.641c-.107.266-.373 1.493-.373 2.08.053 1.546 1.28 2.826 1.653 4.32l.853.16c.427 1.013 2.453 3.893 2.88 4.266.107.267.64.587.907.96.267.214 1.707 1.814 3.413 2.774 0 0 .32.587.427 1.066-.533.427.533 1.28.907 2.667 0 .213-.32.373.16.854-.053 2.08-.64 3.2.426 3.733" fill="#1D428A"/><path d="M21.186 6.72c-.16-.106-.107-.32 0-.427.267-.053.586-.586.853-1.173.213 0 .267-.213.374-.32.213-.373.48-.693.16-.907.693-1.279.213-2.186-.16-2.186-.16-.32-.427-.533-.907-.747h3.04c1.706 0 3.146 1.44 3.146 3.2v15.307a3.885 3.885 0 0 0-.373-.64c0-.427-.426-.427-.587-.587-.106-.106.107-.213-.639-.374-.16-.106-.267-1.226-.267-1.226-.16-.747-.427-1.28-.8-2.08-.214-.373-.32-1.653-.533-2.293.16-2.934-.8-3.84-1.547-4.32-.32-.16-.427-.32-.747-.48V7.36c-.213-.213-.693-.427-1.013-.64zm6.506 29.174c0 1.599-1.173 2.88-2.666 3.146h-.053c1.386-.853.533-2.454.266-3.414 0-.052.053-.106.053-.159.107-.107-.053-.427-.053-.427-.16-.107-.213-.907-.32-1.28-.16-.587.267-1.6.267-1.974 0-.319-.267-.799-.747-1.439-.107-.107-.426-3.094-.747-3.841-.426-1.013-.586-.852-1.066-2.133-.427-.853-.107-2.132-1.013-5.12l.213-.213s-.694-2.56-.96-3.253c-.214-.747-.64-.8-.64-.8s0-.267.053-.32c0-.16.853-2.294.907-2.347 0-.053 1.227-.853 1.227-.746.106.533.586 3.199.746 3.626.214.427.907 1.76 1.227 2.56a2.864 2.864 0 0 0-2.134 2.773 2.811 2.811 0 0 0 2.827 2.827c1.173 0 2.187-.746 2.613-1.813v14.347z" fill="#C8102E"/><g transform="translate(33)"><mask id="d" fill="#fff"><use xlink:href="#c"/></mask><path d="M37.146 27.573h2.72l-.426-6.986c-.16-2.773-.587-11.573-.907-16.32h-.213l-.747 16.32-.427 6.986zm2.987 4.32h-3.2l-.427 7.148h-5.172L35.067.96h7.253l3.627 38.08H40.56l-.427-7.148zm-17.6-9.386V34.24h.853c1.6 0 2.08-.905 2.08-2.72v-6.452c0-1.867-.587-2.56-2.293-2.56h-.64zm0-16.747v12.586h.64c1.814 0 2.293-.692 2.293-2.773V8.32c0-1.76-.533-2.56-2.08-2.56h-.853zm-5.12 33.28V.96h6.347c4.213 0 6.826 2.293 6.826 7.626v5.6c0 3.468-1.066 5.227-2.56 6.134 1.494.96 2.56 2.666 2.56 5.6v5.547c0 5.227-2.773 7.574-6.826 7.574h-6.347zm-12.533 0H.4V.96h6.933l4.64 31.413c-.693-7.466-1.6-19.52-1.6-25.866V.96h4.48v38.08H8.506L4.24 8.534c.373 6.826.64 14.986.64 19.572V39.04z" fill="#FFF" mask="url(#d)"/></g></g></svg>
+                </div>
+            </a>
+                            <ul class="nbap-nav__menu nbap-nav--main__menu" role="navigation" data-settings="{&quot;0&quot;:{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/news&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;News&quot;,&quot;name&quot;:&quot;All News and Stories&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;1&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/schedule\/&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Schedule&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;2&quot;:{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/videos&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;Videos&quot;,&quot;name&quot;:&quot;Videos&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;3&quot;:{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/contestant\/toronto-raptors\/news\/dxjosqw1acmrjm1gt2wmis1ru&quot;,&quot;classes&quot;:&quot; js-has-dropdown &quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;NBA Canada Raptors Content&quot;,&quot;name&quot;:&quot;Raptors Central&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{&quot;0&quot;:{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/contestant\/toronto-raptors\/news\/dxjosqw1acmrjm1gt2wmis1ru&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;News and Stories&quot;,&quot;name&quot;:&quot;News and Stories&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;1&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/teams\/schedule\/#!\/raptors&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;2018-19 Schedule&quot;,&quot;name&quot;:&quot;2019-20 Schedule&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;2&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/teams\/leaders\/#!\/raptors&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;Raptors 2017-18 Stats&quot;,&quot;name&quot;:&quot;Stats&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;3&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/teams\/roster\/#!\/raptors&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;Raptors Roster&quot;,&quot;name&quot;:&quot;Roster&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}}},&quot;4&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/playerindex\/&quot;,&quot;classes&quot;:&quot; js-has-dropdown &quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Players&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{&quot;0&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/draft\/&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;2019 Draft Resuts&quot;,&quot;name&quot;:&quot;2019 Draft&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;1&quot;:{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/news\/2019-nba-free-agency-tracker-available-players-news-updates-kawhi-leonard-kevin-durant-kyrie-irving\/1g8sb8rs7j9k918xjen407si0c&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;2019 Free Agency Movement&quot;,&quot;name&quot;:&quot;Offseason Free Agency Movement&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}}},&quot;5&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/teamindex\/&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Teams&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;6&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/statistics&quot;,&quot;classes&quot;:&quot; js-has-dropdown &quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Stats&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{&quot;0&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/statistics\/teamstats&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Team Stats&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;1&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/statistics\/leagueleaders&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;League Leaders&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;2&quot;:{&quot;url&quot;:&quot;http:\/\/stats.nba.com\/teams\/advanced\/?sort=W&amp;dir=-1&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;Advanced Stats&quot;,&quot;name&quot;:&quot;Advanced Stats&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}}},&quot;7&quot;:{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/news\/2019-wnba-broadcast-canadian-broadcast-schedule\/1067sfsb2urpp1l1n3w7634z0e&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;2019 WNBA Schedule&quot;,&quot;name&quot;:&quot;WNBA&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;8&quot;:{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/category\/nba-finals\/news\/175n5pcu13g1j131z70cl9slcx&quot;,&quot;classes&quot;:&quot; js-has-dropdown &quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;NBA Playoffs 2019&quot;,&quot;name&quot;:&quot;2019 NBA Finals&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{&quot;0&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/playoffpicture\/&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;2019 Playoff Bracket&quot;,&quot;name&quot;:&quot;Full Playoff Bracket&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}}},&quot;9&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/scores\/&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Scores&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;10&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/standings\/&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Standings&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}}">
+                                                                        <li class="nbap-nav__menu-item " data-settings="{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/news&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;News&quot;,&quot;name&quot;:&quot;All News and Stories&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}">
+                                <a class="nbap-nav__link" href="https://ca.nba.com/news" title="News" >All News and Stories</a>
+                                                            </li>
+                                                    <li class="nbap-nav__menu-item " data-settings="{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/schedule\/&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Schedule&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}">
+                                <a class="nbap-nav__link" href="https://ca.global.nba.com/schedule/" title="" >Schedule</a>
+                                                            </li>
+                                                    <li class="nbap-nav__menu-item " data-settings="{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/videos&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;Videos&quot;,&quot;name&quot;:&quot;Videos&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}">
+                                <a class="nbap-nav__link" href="https://ca.nba.com/videos" title="Videos" >Videos</a>
+                                                            </li>
+                                                    <li class="nbap-nav__menu-item  js-has-dropdown " data-settings="{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/contestant\/toronto-raptors\/news\/dxjosqw1acmrjm1gt2wmis1ru&quot;,&quot;classes&quot;:&quot; js-has-dropdown &quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;NBA Canada Raptors Content&quot;,&quot;name&quot;:&quot;Raptors Central&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{&quot;0&quot;:{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/contestant\/toronto-raptors\/news\/dxjosqw1acmrjm1gt2wmis1ru&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;News and Stories&quot;,&quot;name&quot;:&quot;News and Stories&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;1&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/teams\/schedule\/#!\/raptors&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;2018-19 Schedule&quot;,&quot;name&quot;:&quot;2019-20 Schedule&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;2&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/teams\/leaders\/#!\/raptors&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;Raptors 2017-18 Stats&quot;,&quot;name&quot;:&quot;Stats&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;3&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/teams\/roster\/#!\/raptors&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;Raptors Roster&quot;,&quot;name&quot;:&quot;Roster&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}}}">
+                                <a class="nbap-nav__link" href="https://ca.nba.com/contestant/toronto-raptors/news/dxjosqw1acmrjm1gt2wmis1ru" title="NBA Canada Raptors Content" >Raptors Central</a>
+                                                                    <div class="nbap-nav__dropdown-container js-dropdown-container">
+                                        <ul class="nbap-nav__dropdown">
+                                                                                            <li class="nbap-nav__dropdown-item" data-settings='{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/contestant\/toronto-raptors\/news\/dxjosqw1acmrjm1gt2wmis1ru&quot;,&quot;classes&quot;:&quot; js-has-dropdown &quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;NBA Canada Raptors Content&quot;,&quot;name&quot;:&quot;Raptors Central&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{&quot;0&quot;:{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/contestant\/toronto-raptors\/news\/dxjosqw1acmrjm1gt2wmis1ru&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;News and Stories&quot;,&quot;name&quot;:&quot;News and Stories&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;1&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/teams\/schedule\/#!\/raptors&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;2018-19 Schedule&quot;,&quot;name&quot;:&quot;2019-20 Schedule&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;2&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/teams\/leaders\/#!\/raptors&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;Raptors 2017-18 Stats&quot;,&quot;name&quot;:&quot;Stats&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;3&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/teams\/roster\/#!\/raptors&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;Raptors Roster&quot;,&quot;name&quot;:&quot;Roster&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}}}'>
+                                                    <a class="nbap-nav__dropdown-link" href="https://ca.nba.com/contestant/toronto-raptors/news/dxjosqw1acmrjm1gt2wmis1ru" >News and Stories</a>
+                                                </li>
+                                                                                    </ul>
+                                    </div>
+                                                            </li>
+                                                    <li class="nbap-nav__menu-item  js-has-dropdown " data-settings="{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/playerindex\/&quot;,&quot;classes&quot;:&quot; js-has-dropdown &quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Players&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{&quot;0&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/draft\/&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;2019 Draft Resuts&quot;,&quot;name&quot;:&quot;2019 Draft&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;1&quot;:{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/news\/2019-nba-free-agency-tracker-available-players-news-updates-kawhi-leonard-kevin-durant-kyrie-irving\/1g8sb8rs7j9k918xjen407si0c&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;2019 Free Agency Movement&quot;,&quot;name&quot;:&quot;Offseason Free Agency Movement&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}}}">
+                                <a class="nbap-nav__link" href="https://ca.global.nba.com/playerindex/" title="" >Players</a>
+                                                                    <div class="nbap-nav__dropdown-container js-dropdown-container">
+                                        <ul class="nbap-nav__dropdown">
+                                                                                            <li class="nbap-nav__dropdown-item" data-settings='{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/playerindex\/&quot;,&quot;classes&quot;:&quot; js-has-dropdown &quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Players&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{&quot;0&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/draft\/&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;2019 Draft Resuts&quot;,&quot;name&quot;:&quot;2019 Draft&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;1&quot;:{&quot;url&quot;:&quot;https:\/\/ca.nba.com\/news\/2019-nba-free-agency-tracker-available-players-news-updates-kawhi-leonard-kevin-durant-kyrie-irving\/1g8sb8rs7j9k918xjen407si0c&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;2019 Free Agency Movement&quot;,&quot;name&quot;:&quot;Offseason Free Agency Movement&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}}}'>
+                                                    <a class="nbap-nav__dropdown-link" href="https://ca.global.nba.com/draft/" >2019 Draft</a>
+                                                </li>
+                                                                                    </ul>
+                                    </div>
+                                                            </li>
+                                                    <li class="nbap-nav__menu-item " data-settings="{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/teamindex\/&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Teams&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}">
+                                <a class="nbap-nav__link" href="https://ca.global.nba.com/teamindex/" title="" >Teams</a>
+                                                            </li>
+                                                    <li class="nbap-nav__menu-item  js-has-dropdown " data-settings="{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/statistics&quot;,&quot;classes&quot;:&quot; js-has-dropdown &quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Stats&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{&quot;0&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/statistics\/teamstats&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Team Stats&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;1&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/statistics\/leagueleaders&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;League Leaders&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;2&quot;:{&quot;url&quot;:&quot;http:\/\/stats.nba.com\/teams\/advanced\/?sort=W&amp;dir=-1&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;Advanced Stats&quot;,&quot;name&quot;:&quot;Advanced Stats&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}}}">
+                                <a class="nbap-nav__link" href="https://ca.global.nba.com/statistics" title="" >Stats</a>
+                                                                    <div class="nbap-nav__dropdown-container js-dropdown-container">
+                                        <ul class="nbap-nav__dropdown">
+                                                                                            <li class="nbap-nav__dropdown-item" data-settings='{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/statistics&quot;,&quot;classes&quot;:&quot; js-has-dropdown &quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Stats&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{&quot;0&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/statistics\/teamstats&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;Team Stats&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;1&quot;:{&quot;url&quot;:&quot;https:\/\/ca.global.nba.com\/statistics\/leagueleaders&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;&quot;,&quot;name&quot;:&quot;League Leaders&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}},&quot;2&quot;:{&quot;url&quot;:&quot;http:\/\/stats.nba.com\/teams\/advanced\/?sort=W&amp;dir=-1&quot;,&quot;classes&quot;:&quot;&quot;,&quot;anchorClasses&quot;:&quot;&quot;,&quot;hoverText&quot;:&quot;Advanced Stats&quot;,&quot;name&quot;:&quot;Advanced Stats&quot;,&quot;attributes&quot;:&quot;&quot;,&quot;children&quot;:{}}}}'>
+                                                    <a class="nbap-nav__dropdown-link" href="https://ca.global.nba.com/statistics/teamstats" >Team Stats</a>
+                                                </li>
+                                                                                    </ul>
+                                    </div>
+                                                            </li>
+                                                                                        <li class="nbap-nav__menu-item js-has-dropdown">
+                            <a class="nbap-nav__link nbap-nav__link--ellipsis"></a>
+                                <div class="nbap-nav__dropdown-container js-dropdown-container">
+                                    <ul class="nbap-nav__dropdown">
+                                                                                    <li class="nbap-nav__dropdown-item">
+                                                <a class="nbap-nav__dropdown-link" href="https://ca.nba.com/news/2019-wnba-broadcast-canadian-broadcast-schedule/1067sfsb2urpp1l1n3w7634z0e" >WNBA</a>
+                                            </li>
+                                                                                    <li class="nbap-nav__dropdown-item">
+                                                <a class="nbap-nav__dropdown-link" href="https://ca.nba.com/category/nba-finals/news/175n5pcu13g1j131z70cl9slcx" >2019 NBA Finals</a>
+                                            </li>
+                                                                                    <li class="nbap-nav__dropdown-item">
+                                                <a class="nbap-nav__dropdown-link" href="https://ca.global.nba.com/scores/" >Scores</a>
+                                            </li>
+                                                                                    <li class="nbap-nav__dropdown-item">
+                                                <a class="nbap-nav__dropdown-link" href="https://ca.global.nba.com/standings/" >Standings</a>
+                                            </li>
+                                                                            </ul>
+                                </div>
+                            </a>
+                        </li>
+                                    </ul>
+                    </div>
+        <div class="is-bookmark">
+    <div class="nav-items">
+        <div class="nav-item is-parent widget-bookmarks__nav "></div>
+        <span class="nav-label">bookmarks</span>
+    </div>
+</div>
+        <div class="nbap-nav__end">
+            <div class="nbap-nav__nba-jr-logo locale-ca">
+    <a rel="noopener noreferrer" data-track="Click" data-type="Exit" data-id="NBA jr" data-pos="Nav" href="http://jrnba.ca" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 294.77"><path d="M250.94 0h-58.95a26.09 26.09 0 0 0-26 26.06v199.59a26.1 26.1 0 0 0 26 26.09h58.91a26.15 26.15 0 0 0 26.11-26.09V26.06A26.1 26.1 0 0 0 250.94 0" fill="#fff"/><path d="M248.41 221.82c-3.2-2.85-1.07-4.06-1.2-5.19-2.11-8.72-9-14-5.45-16.87-.88-2.88-2.68-6.49-2.61-6.49-10.8-6.19-20-16.26-21.55-17.74-1.89-2-5.12-4.12-5.72-5.79-2.59-2.42-15.32-20.42-18.28-27.07l-5.16-.73c-2.35-9.62-10.15-17.62-10.38-27.25-.08-3.64 1.64-11.43 2.28-13s3.63-4.16 3.63-4.16v-2.57c-11.26.32-8-.83-10-5.21-1.36-3-.39-3.7.11-5.8 1.51-6.21 6.53-15.78 8.6-20.13.64-2.2 2.81-7.49 2.81-7.49 8.39-17.09 11.53-15.83 21.5-16.8l.49-.7c10-.44 8.35-1.19 9.76-10.81-1.45.62-1.89-3-1.89-3-.79-5.47 1.52-4.43 2.62-4.55.23-9 1.15-11.83 7.64-14.31h-33.6a19.92 19.92 0 0 0-19.93 19.92v199.57a19.93 19.93 0 0 0 19.93 19.93h58.93c-6.75-3.64-2.77-10.58-2.53-23.76" fill="#1d428a"/><path d="M236.29 46.15l.06.85c1.8 1 2.71 1.91 4.52 3.07 4.81 3 10.73 8.4 10 26.94 1.35 4 1.94 12 3.19 14.53 2.5 5 4.17 8.19 4.91 12.88 0 0 .72 7.29 1.66 7.82 5 1.12 3.53 1.61 4.26 2.46s3.64.95 3.64 3.63a17.16 17.16 0 0 1 2.29 4.15V26.06a19.93 19.93 0 0 0-19.89-19.91h-19c3.05 1.08 4.78 2.37 5.79 4.4 2.46.22 5.38 5.73.83 13.87 2 1.34.44 3.35-1 5.68-.42.75-.88 2.07-2.23 2-1.73 3.64-3.82 7.17-5.4 7.39-.48.59-.82 2.16-.1 2.89a27.28 27.28 0 0 1 6.54 3.79M270.83 135.55a17.77 17.77 0 1 1-20.72-23.84c-2-5.12-6.37-13.42-7.65-16.15s-4.14-19.59-4.77-22.93c-.14-.73-7.66 4.36-7.68 4.68-.44.42-5.64 14-5.86 14.74a22.57 22.57 0 0 0-.12 2.28s2.56.31 4 4.78 5.89 20.72 5.89 20.72a11.47 11.47 0 0 1-1.25 1.17c5.61 18.78 3.65 26.86 6.16 32.37 3.17 7.76 4 6.74 6.74 13.26 1.94 4.76 4.12 23.45 4.84 24.28 3 3.84 4.66 6.84 4.66 9s-2.57 8.62-1.63 12.37c.57 2.2.86 7.15 1.89 8.09 0 0 .94 1.86.48 2.68-.13.29-.4.72-.28 1.06 1.67 5.9 7.06 15.95-1.67 21.22h.19a19.79 19.79 0 0 0 16.74-19.69z" fill="#c8102e"/><path d="M338.56 86.52v159h-32.19V57.68h27.16a92.42 92.42 0 0 1 2.35 10.06c5.7-6.7 13.75-12.07 25.82-12.07 14.76 0 25.15 9.05 25.15 30.52v159.29h-32.19V95.91c0-7.71-2-11.4-8.05-11.4a20.45 20.45 0 0 0-8.05 2M449.23 207.59V95.24c0-7.37-2.34-10.73-8-10.39a15.79 15.79 0 0 0-8 1.67v130.12a20.17 20.17 0 0 0 8 1.68c6 0 8-3.36 8-10.73m-18.44 27.83l-2.68 10.06h-27.17V6.04h32.2v58.69c5-5 12.4-9.06 22.8-9.06 15.43 0 25.49 9.06 25.49 31.86v129.45c0 21.12-10.06 30.51-24.82 30.51-12.74 0-20.79-5.7-25.82-12.07M543.81 216.98v-57.66c-12.08.33-16.1 4-16.1 16.09v29.18c0 8.72 1.34 13.75 8.05 13.75a22.72 22.72 0 0 0 8-1.34m2 17.1c-5 7-13.08 13.41-24.48 13.41-16.77 0-25.82-10.06-25.82-32.86V177.4c0-29.51 18.1-42.59 48.29-38.56v-37.52c0-13.75-2-16.77-8-16.77s-8.05 3-8.05 16.77v23.47h-31.52v-23.47c0-34.21 12.41-45.61 39.91-45.61 29.18 0 39.91 13.08 39.91 47.62v142.15h-27.16a104.36 104.36 0 0 1-3-11.4M46.62 258.22c0 28.84-10.06 36.55-28.51 36.55A93.05 93.05 0 0 1 0 293.1v-26.5h3c10.06 0 11.4-3 11.4-11.74V57.68h32.2zM52.48 25.8A20.46 20.46 0 1 1 32.02 5.32a20.46 20.46 0 0 1 20.46 20.46M146.75 225.19a20.46 20.46 0 1 1-20.46-20.46 20.46 20.46 0 0 1 20.46 20.46M60.7 245.48V57.68h25.48c1 3.35 2.35 8.72 3.69 15.09 3.69-9.39 10.07-16.45 19.42-16.45a21.69 21.69 0 0 1 6.71 1.34v34.2h-10.03c-6.71 0-10.73 1-13.08 5.37v148.25z" fill="#fff"/></svg></a>
+</div>
+
+            <div class="nbap-nav__store-logo locale-ca">
+    <a rel="noopener noreferrer" data-track="Click" data-type="Exit" data-id="NBA store" data-pos="Nav" href="https://www.nbastore.ca/?_s=bm-nbaca-hp" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 148.32"><title>NBA Store CA</title><path d="M12.48,148.32a7.2,7.2,0,0,0-1-.44A15.31,15.31,0,0,1,0,133.1V15.26A15.26,15.26,0,0,1,15.22,0H50.14A15.31,15.31,0,0,1,65.48,15.41V132.88a15.35,15.35,0,0,1-12.55,15.23,1.25,1.25,0,0,0-.37.21ZM61.88,14.4a22.57,22.57,0,0,0-.69-3c-1.33-3.56-3.66-6.24-7.43-7.21A26.83,26.83,0,0,0,48,3.63c-3-.1-6,0-9.23,0,5.68,3.49,6.58,5.35,4,10.75.64,1.08.63,1.55-.18,2.68s-1.85,2.49-2.77,3.73c-.47.63-.8,1.46-1.41,1.85A2,2,0,0,0,37.49,25a17.19,17.19,0,0,1,2.19,1.16c1.48,1.08,2.81,2.37,4.35,3.35,4,2.55,5.47,6.45,5.88,10.91.2,2.16.2,4.35.51,6.49.53,3.62,1.11,7.23,3.06,10.47a13.09,13.09,0,0,1,1.21,3.8c.33,1.37.45,2.79.77,4.16a2,2,0,0,0,.86,1c1.2.83,2.45,1.58,3.66,2.39a1.56,1.56,0,0,1,.39.59c.37.68.72,1.37,1.08,2l.23.73.24-.06V18C61.92,16.8,61.9,15.6,61.88,14.4Zm-.4,66.24a12.4,12.4,0,0,1-3.7,4,10,10,0,0,1-13.87-2.28,9.76,9.76,0,0,1-1.15-10.77,10.52,10.52,0,0,1,7-5.72c-.73-1.53-1.44-3-2.11-4.45a39.8,39.8,0,0,1-2.71-6.15c-1-3.87-1.64-7.84-2.46-11.76a1.76,1.76,0,0,0-.52-.72c-1.45.93-3.43,1.59-4.18,2.93-1.51,2.75-2.33,5.88-3.51,8.82a1,1,0,0,0,.44,1.4,4.94,4.94,0,0,1,2,3.11c1,3.43,1.89,6.91,2.95,10.32.28.9.24,1.48-.33,1.85.59,2.49,1.27,4.83,1.67,7.22.47,2.75.67,5.55,1,8.32.43,3.45,2.07,6.41,3.78,9.34a11.55,11.55,0,0,1,1.45,3.33c.75,3.57,1.27,7.18,2,10.75a7.59,7.59,0,0,0,1.22,3.34,7.4,7.4,0,0,1,1.45,7.54,10.05,10.05,0,0,0-.24,4.27A47.83,47.83,0,0,0,53,130.67a2.78,2.78,0,0,1,.05.58,12.74,12.74,0,0,0,.13,2.15c.23,1,.71,1.92.94,2.92a13.51,13.51,0,0,1,.52,3.71,4.77,4.77,0,0,1-2.8,4.35c.23.15.37.33.48.31a11.74,11.74,0,0,0,9.59-11c0-.28,0-.56,0-.84V80.05l-.27,0Zm-46.59,64.1A5.88,5.88,0,0,0,16,145h33.1l1,0-.11-.42A3,3,0,0,1,48,141.38c.13-2.89.44-5.77.65-8.65a3,3,0,0,0-.51-2.47c-.37-.42-.27-1.26-.34-1.91,0-.42.11-.89,0-1.24-.89-2-1.86-3.92-2.77-5.89-.41-.87-1.13-1.66-.67-2.77s-.59-4.24-1.64-4.84a53.17,53.17,0,0,1-9.82-7.71c-2.65-2.49-5.41-4.9-7.48-7.92-2.78-4.07-5.58-8.14-8.16-12.33a3.4,3.4,0,0,0-3-1.93,1.56,1.56,0,0,1-1-.78c-1-2.14-1.95-4.33-3-6.46C8.47,73,6.71,69.63,7.43,65.56c.5-2.79.52-5.73,3-7.77a1.68,1.68,0,0,0,.27-1.41c0-.23-.68-.43-1.06-.46-.84-.07-1.69,0-2.52,0a1.74,1.74,0,0,1-1.78-1.07,8.8,8.8,0,0,1,.09-6.9c1.53-3.36,3-6.76,4.5-10.13,1.3-2.89,2.55-5.82,4-8.64,1.3-2.52,3.05-4.71,6.08-5.27,2.35-.43,4.72-.77,7.09-1.05,1.71-.2,2.33-.61,2.7-2.29a24.07,24.07,0,0,0,.43-3.05,1.72,1.72,0,0,0-.39-1c-.84-1.14-.57-2.45-.48-3.68,0-.31.8-.55,1.34-.9.44-3.09,0-6.83,4.45-8.07l-.31-.24H33.67c-6,0-11.92,0-17.87,0a14.92,14.92,0,0,0-3.07.25,11.44,11.44,0,0,0-9.1,10.81q-.09,59.46,0,118.92a10.39,10.39,0,0,0,.95,4.33A11.1,11.1,0,0,0,14.89,144.74Z" fill="#fff"/><path d="M576,144.72H564.26c-.44-1.83-.88-3.63-1.32-5.43-1.15,1-2.22,2.18-3.45,3.1a17.18,17.18,0,0,1-16,2.7c-4.94-1.51-7.44-5.31-8.47-10.12a33,33,0,0,1-.71-6.65c-.08-8.12,0-16.24,0-24.35a27.64,27.64,0,0,1,1.48-9.42c2.66-7.28,8.08-11.24,15.53-12.41a104.94,104.94,0,0,1,10.5-.65v-1c0-7.8.05-15.6,0-23.39a36.18,36.18,0,0,0-.69-6.89c-.63-3.14-2.56-4.45-5.89-4.42s-5.16,1.36-5.76,4.46a42.11,42.11,0,0,0-.64,7c-.1,4.28,0,8.56,0,12.84v1.32H534.64c-.06-.09-.13-.16-.13-.22.15-6.87.14-13.75.53-20.6a25.74,25.74,0,0,1,1.88-7.5c1.94-5.18,5.83-8.27,11.19-9.48a33.84,33.84,0,0,1,13.45-.2c7.34,1.31,11.5,6,13.2,13,.47,2,.67,4,1,6A2.88,2.88,0,0,0,576,53ZM561.8,91.78c-1.32.06-2.48.08-3.62.17-5.9.5-9,3.3-9.22,9-.27,8-.14,16-.17,24,0,.63,0,1.27.1,1.91.41,4.68,3.06,6.81,7.69,6a30.57,30.57,0,0,0,4.09-1.26c.88-.27,1.16-.8,1.16-1.77q-.06-18.36,0-36.71Z" fill="#fff"/><path d="M116.12,3.76h13.41v140.9H110.2L93.76,26.21l-.15,0c.56,13.09,1.25,26.17,1.63,39.27s.52,26.37.62,39.56,0,26.38,0,39.62H82.64V3.8h20.53Q111.48,63,119.8,122.23H120c-.85-13.09-1.85-26.16-2.5-39.26s-1.12-26.34-1.35-39.52S116.12,17.05,116.12,3.76Z" fill="#fff"/><path d="M140.1,144.72V3.87c.12-.06.19-.13.26-.13,7,0,14.08-.11,21.1.16,5.46.21,10.56,1.77,14.5,5.9A22.25,22.25,0,0,1,181.62,22a80.62,80.62,0,0,1,1,11c.14,6.47.18,13-.07,19.43A55.08,55.08,0,0,1,181,62.89a19.43,19.43,0,0,1-7.55,11.8c1.23,1.15,2.55,2.2,3.65,3.43a22.55,22.55,0,0,1,5.22,12.13,67.56,67.56,0,0,1,.73,9.42q.07,10.32-.23,20.62a36.12,36.12,0,0,1-2.12,11c-2.49,7.07-7.43,11.31-14.76,12.64a49.21,49.21,0,0,1-7.85.75c-5.6.11-11.2,0-16.8,0Zm14.52-127v51.4c.93,0,1.77,0,2.6,0,5.78-.18,8.79-2.57,10-8.18a35.14,35.14,0,0,0,.91-7c.12-7.23.11-14.47.06-21.7a23.22,23.22,0,0,0-1.64-9.13A7.92,7.92,0,0,0,160,18C158.24,17.77,156.44,17.77,154.62,17.68Zm0,64.19v48.87c1.93,0,3.81.14,5.66,0a7.37,7.37,0,0,0,6.86-5.45,26.35,26.35,0,0,0,1.32-6.78c.23-7,.26-14.06.23-21.09a29.47,29.47,0,0,0-1.34-9.68c-1.18-3.38-3.46-5.44-7-5.8A56.84,56.84,0,0,0,154.58,81.87Z" fill="#fff"/><path d="M218.39,113.76H204.44q-1.19,15.46-2.37,30.92H187.4q7.2-70.52,14.4-140.91c.32,0,.51,0,.71,0,6.36,0,12.72,0,19.08,0,.7,0,1.06.09,1.14.93q2.1,22.5,4.27,45,2.08,22.08,4.16,44.15t4.23,44c.22,2.27.41,4.53.62,6.87H220.76Q219.59,129.27,218.39,113.76ZM217,99.44q-2.89-41.17-5.76-82.06-2.7,40.88-5.42,82.06Z" fill="#fff"/><path d="M284.36,50.72H270v-1.3c0-7,.05-14,0-21a39.44,39.44,0,0,0-.67-6.78c-.84-4.49-4-5.88-8.08-5a5.4,5.4,0,0,0-3.91,3.57,20.54,20.54,0,0,0-1.25,8c0,5,0,10.08.23,15.1.34,6.82,2.82,13,6.47,18.67,4.07,6.35,8.34,12.58,12.41,18.92,3.6,5.59,6.69,11.47,7.92,18.08a60.8,60.8,0,0,1,1.07,10c.12,6.31.48,12.64-.68,18.9a28,28,0,0,1-3.08,8.88,17.07,17.07,0,0,1-11.1,8.46,28.51,28.51,0,0,1-13.89-.11c-7.27-1.8-11.24-6.83-12.9-13.81a45,45,0,0,1-1.23-9.24c-.17-7.79-.05-15.59-.05-23.47H255.8v1.26c0,7.72,0,15.44.08,23.16a18.37,18.37,0,0,0,1,5.38c.83,2.51,2.8,3.59,5.59,3.69s4.82-1,5.77-3.56a18.15,18.15,0,0,0,1.17-5.46c.16-4.67.14-9.36,0-14a29.23,29.23,0,0,0-4.58-14.45c-3.07-5-6.36-10-9.6-14.89-4.09-6.25-8-12.6-10.5-19.69a56.58,56.58,0,0,1-3.2-18.44q-.1-7.61.2-15.22a33.79,33.79,0,0,1,2.83-12.54c3-6.69,8.21-10.31,15.44-11.07a29.65,29.65,0,0,1,10.94.76c6.23,1.7,9.72,6.07,11.56,12a46.67,46.67,0,0,1,1.9,13.48c.08,7.08,0,14.16,0,21.23C284.4,50.31,284.38,50.47,284.36,50.72Z" fill="#fff"/><path d="M322.84,89.52c0-10.76,0-21.52,0-32.28a37.37,37.37,0,0,1,2.27-13.63,15.44,15.44,0,0,1,11.86-10,34.22,34.22,0,0,1,13.11-.13c6.95,1.23,11.11,5.52,13,12.19a42.51,42.51,0,0,1,1.46,11.49q0,32.34,0,64.67a39.37,39.37,0,0,1-1.9,12.74c-2.14,6.26-6.49,9.88-13,10.93a37.1,37.1,0,0,1-11.57,0c-7.05-1.09-11.5-5.11-13.58-11.87a40.93,40.93,0,0,1-1.64-11.94C322.81,111,322.84,100.23,322.84,89.52Zm14.48-.14q0,16.86,0,33.71a30.35,30.35,0,0,0,.38,4.76c.55,3.5,2.48,5.11,5.95,5.15s5.54-1.48,6.19-5a22.3,22.3,0,0,0,.4-4.16q0-34.31,0-68.61A21.8,21.8,0,0,0,349.6,50c-.71-2.91-2.69-4.22-5.86-4.21s-5.11,1.31-5.78,4.3a26.42,26.42,0,0,0-.61,5.68C337.3,67,337.32,78.19,337.32,89.38Z" fill="#fff"/><path d="M423.16,95.15v1.31c0,8.52-.05,17,0,25.55a34.18,34.18,0,0,0,.69,6.77c.62,3,2.54,4.21,5.81,4.22s5.21-1.29,5.84-4.2a32,32,0,0,0,.64-6.18c.09-5.16,0-10.32,0-15.48v-1.26h14.17c0,.05.1.11.1.18-.08,6.64,0,13.28-.32,19.9a34.73,34.73,0,0,1-1.91,9.21c-2,6-6.49,9.29-12.69,10.28a35.48,35.48,0,0,1-12.75-.2c-6.15-1.25-10.12-5-12.15-10.83A41.14,41.14,0,0,1,408.73,121q0-31.44,0-62.87A40.49,40.49,0,0,1,410.87,44a15.48,15.48,0,0,1,12-10.38A34.22,34.22,0,0,1,436,33.44c7.06,1.24,11.21,5.63,13.06,12.4a47.25,47.25,0,0,1,1.44,12.58q0,17.94,0,35.88v.85Zm13-10.53c0-.36.07-.67.07-1,0-9.24,0-18.48,0-27.72a26.18,26.18,0,0,0-.7-5.92c-.74-3-2.7-4.23-6-4.18s-5,1.31-5.61,4.31a35.22,35.22,0,0,0-.67,6.89c-.07,8.75,0,17.52,0,26.28v1.32Z" fill="#fff"/><path d="M524.24,71H510.05c0-.35-.05-.7-.05-1.05,0-5,.06-10.08,0-15.11a21.12,21.12,0,0,0-.75-5.19c-.79-2.79-2.74-3.93-6-3.86-3,.07-4.8,1.27-5.46,4.05a25.13,25.13,0,0,0-.7,5.79q-.07,33.72,0,67.44a25.47,25.47,0,0,0,.75,6c.67,2.69,2.56,3.84,5.61,3.86s5.05-1.08,5.8-3.77a21.1,21.1,0,0,0,.74-5.18c.09-5.6,0-11.2,0-16.8V106h14.16a3.65,3.65,0,0,1,.12.66c0,6.08,0,12.16-.15,18.23a31,31,0,0,1-1.94,10.19,15.14,15.14,0,0,1-11.86,10.18,34.61,34.61,0,0,1-13.34.06c-7.32-1.37-11.54-6-13.09-13.09a52.27,52.27,0,0,1-1.24-10.79c-.12-21.28-.07-42.56-.05-63.84A40.74,40.74,0,0,1,484.3,45.2c2.28-7.26,7.29-11.31,14.9-12.06a38.17,38.17,0,0,1,10.62.29c6.79,1.24,11.12,5.29,12.83,11.87a52,52,0,0,1,1.52,10.39C524.42,60.75,524.24,65.83,524.24,71Z" fill="#fff"/><path d="M309.44,34.08h7.66V46.8h-7.62v1.4q0,38.82,0,77.64a16.46,16.46,0,0,0,.3,3.21,3.93,3.93,0,0,0,3.76,3.43c.67.08,1.35.09,2,.11s1.35,0,2.1,0v12.19a18.2,18.2,0,0,1-3.07.49,55.72,55.72,0,0,1-9-.21c-5.75-.9-8.83-4.78-9.94-10.28A34.94,34.94,0,0,1,295,128q-.07-39.84,0-79.68v-1.5h-5.25V34.09H295V13.38l14.45-2.18Z" fill="#fff"/><path d="M389,144.67H374.65V34.08c3.47,0,6.9,0,10.33,0,.28,0,.71.45.81.77.64,2.18,1.22,4.38,1.82,6.57.08.3.15.6.25,1,4.55-7.35,10.28-10.62,15.53-8.88V48.72c-2.05,0-4.08-.12-6.09,0-2.86.22-5.47,1.13-7.26,3.6a5,5,0,0,0-1,3.1q0,43.9,0,87.82Z" fill="#fff"/><path d="M475.72,136a9.12,9.12,0,1,1-18.24,0,9.12,9.12,0,0,1,18.24,0Z" fill="#fff"/><path d="M14.89,144.74a11.1,11.1,0,0,1-10.3-6.82,10.39,10.39,0,0,1-.95-4.33q-.08-59.46,0-118.92a11.44,11.44,0,0,1,9.1-10.81,14.92,14.92,0,0,1,3.07-.25c5.95,0,11.91,0,17.87,0h1.17l.31.24c-4.49,1.24-4,5-4.45,8.07-.54.35-1.31.59-1.34.9-.09,1.23-.36,2.54.48,3.68a1.72,1.72,0,0,1,.39,1,24.07,24.07,0,0,1-.43,3.05c-.37,1.68-1,2.09-2.7,2.29-2.37.28-4.74.62-7.09,1.05-3,.56-4.78,2.75-6.08,5.27-1.45,2.82-2.7,5.75-4,8.64-1.52,3.37-3,6.77-4.5,10.13a8.8,8.8,0,0,0-.09,6.9,1.74,1.74,0,0,0,1.78,1.07c.83.06,1.68,0,2.52,0,.38,0,1,.23,1.06.46a1.68,1.68,0,0,1-.27,1.41c-2.48,2-2.5,5-3,7.77-.72,4.07,1,7.47,2.75,10.92,1.06,2.13,2,4.32,3,6.46a1.56,1.56,0,0,0,1,.78,3.4,3.4,0,0,1,3,1.93c2.58,4.19,5.38,8.26,8.16,12.33,2.07,3,4.83,5.43,7.48,7.92a53.17,53.17,0,0,0,9.82,7.71c1,.6,2.11,3.72,1.64,4.84s.26,1.9.67,2.77c.91,2,1.88,3.91,2.77,5.89.16.35,0,.82,0,1.24.07.65,0,1.49.34,1.91a3,3,0,0,1,.51,2.47c-.21,2.88-.52,5.76-.65,8.65a3,3,0,0,0,1.89,3.13,9.11,9.11,0,0,1-1.36.2Q31.73,144.74,14.89,144.74Z" fill="#1d428a"/><path d="M61.88,133.68a11.74,11.74,0,0,1-9.59,11c-.11,0-.25-.16-.48-.31a4.77,4.77,0,0,0,2.8-4.35,13.51,13.51,0,0,0-.52-3.71c-.23-1-.71-1.93-.94-2.92a12.74,12.74,0,0,1-.13-2.15,2.78,2.78,0,0,0-.05-.58,47.83,47.83,0,0,1-1.32-5.34,10.05,10.05,0,0,1,.24-4.27,7.4,7.4,0,0,0-1.45-7.54,7.59,7.59,0,0,1-1.22-3.34c-.71-3.57-1.23-7.18-2-10.75a11.55,11.55,0,0,0-1.45-3.33c-1.71-2.93-3.35-5.89-3.78-9.34-.34-2.77-.54-5.57-1-8.32-.4-2.39-1.08-4.73-1.67-7.22.57-.37.61-1,.33-1.85C38.6,66,37.73,62.48,36.71,59.05a4.94,4.94,0,0,0-2-3.11,1,1,0,0,1-.44-1.4c1.18-2.94,2-6.07,3.51-8.82.75-1.34,2.73-2,4.18-2.93a1.76,1.76,0,0,1,.52.72c.82,3.92,1.44,7.89,2.46,11.76a39.8,39.8,0,0,0,2.71,6.15c.67,1.47,1.38,2.92,2.11,4.45a10.52,10.52,0,0,0-7,5.72,9.76,9.76,0,0,0,1.15,10.77,10,10,0,0,0,13.87,2.28,12.4,12.4,0,0,0,3.7-4A9.34,9.34,0,0,1,61.67,82q0,25.14,0,50.28A10.89,10.89,0,0,0,61.88,133.68Z" fill="#c7112f"/><path d="M61.45,71.45c-.36-.68-.71-1.37-1.08-2a1.56,1.56,0,0,0-.39-.59c-1.21-.81-2.46-1.56-3.66-2.39a2,2,0,0,1-.86-1c-.32-1.37-.44-2.79-.77-4.16a13.09,13.09,0,0,0-1.21-3.8c-1.95-3.24-2.53-6.85-3.06-10.47-.31-2.14-.31-4.33-.51-6.49C49.5,36,48.07,32.09,44,29.54c-1.54-1-2.87-2.27-4.35-3.35A17.19,17.19,0,0,0,37.49,25a2,2,0,0,1,.89-2.42c.61-.39.94-1.22,1.41-1.85.92-1.24,1.87-2.47,2.77-3.73s.82-1.6.18-2.68c2.63-5.4,1.73-7.26-4-10.75C42,3.6,45,3.53,48,3.63a26.83,26.83,0,0,1,5.74.61c3.77,1,6.1,3.65,7.43,7.21a22.57,22.57,0,0,1,.69,3,10.89,10.89,0,0,0-.19,1.38q0,27.17,0,54.32A7.91,7.91,0,0,1,61.45,71.45Z" fill="#c7112e"/><path d="M61.45,71.45a7.91,7.91,0,0,0,.22-1.35q0-27.15,0-54.32a10.89,10.89,0,0,1,.19-1.38c0,1.2,0,2.4,0,3.6V72.12l-.24.06Z" fill="#d54d63"/><path d="M61.88,133.68a10.89,10.89,0,0,1-.19-1.38q0-25.14,0-50.28a9.34,9.34,0,0,0-.19-1.38l.17-.63.27,0v52.79C61.92,133.12,61.9,133.4,61.88,133.68Z" fill="#d54c62"/><path d="M14.89,144.74q16.83,0,33.67,0a9.11,9.11,0,0,0,1.36-.2c0,.14.08.28.11.42l-1,0H16A5.88,5.88,0,0,1,14.89,144.74Z" fill="#c6cfe1"/></svg></a>
+</div>
+
+            <div class="nbap-nav__leaguepass-logo">
+                <a rel="noopener noreferrer" href="http://watch.nba.com/packages?ls=leaguepass:localsite:ca:perform:topnav" target="_blank"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 648 139.7" xml:space="preserve"> <g> <g> <path fill="#fff" d="M71.4,8.5H47.2c-5.9,0-10.7,4.8-10.7,10.7v82.1c0,5.9,4.8,10.7,10.7,10.7h24.2c5.9,0,10.7-4.8,10.7-10.7V19.2 C82.1,13.3,77.3,8.5,71.4,8.5"/> <path fill="#1D428A" d="M70.4,99.7c-1.3-1.2-0.4-1.7-0.5-2.1c-0.9-3.6-3.7-5.8-2.2-6.9c-0.4-1.2-1.1-2.7-1.1-2.7 c-4.4-2.5-8.2-6.7-8.9-7.3c-0.8-0.8-2.1-1.7-2.4-2.4c-1.1-1-6.3-8.4-7.5-11.1l-2.1-0.3c-1-3.9-4.2-7.3-4.3-11.2 c0-1.5,0.7-4.7,0.9-5.3c0.3-0.6,1.5-1.7,1.5-1.7v-1.1c-4.6,0.1-3.3-0.3-4.1-2.1c-0.6-1.2-0.2-1.5,0-2.4c0.6-2.6,2.7-6.5,3.5-8.3 c0.3-0.9,1.2-3.1,1.2-3.1c3.5-7,4.7-6.5,8.8-6.9l0.2-0.3c4.1-0.2,3.4-0.5,4-4.4c-0.6,0.3-0.8-1.2-0.8-1.2 c-0.3-2.3,0.6-1.8,1.1-1.9C58,13.2,58.3,12,61,11H47.2c-4.5,0-8.2,3.7-8.2,8.2v82.1c0,4.5,3.7,8.2,8.2,8.2h24.2 C68.6,108,70.3,105.2,70.4,99.7"/> <path fill="#C8102E" d="M65.4,27.5l0,0.3c0.7,0.4,1.1,0.8,1.9,1.3c2,1.2,4.4,3.5,4.1,11.1c0.6,1.7,0.8,4.9,1.3,6c1,2,1.7,3.4,2,5.3 c0,0,0.3,3,0.7,3.2c2,0.5,1.5,0.7,1.8,1c0.3,0.4,1.5,0.4,1.5,1.5c0.4,0.5,0.7,1.1,0.9,1.7V19.2c0-4.5-3.7-8.2-8.2-8.2h-7.8 c1.3,0.4,2,1,2.4,1.8c1,0.1,2.2,2.4,0.3,5.7c0.8,0.6,0.2,1.4-0.4,2.3c-0.2,0.3-0.4,0.9-0.9,0.8c-0.7,1.5-1.6,2.9-2.2,3 c-0.2,0.2-0.3,0.9,0,1.2C63.7,26.3,64.8,26.9,65.4,27.5"/> <path fill="#C8102E" d="M79.6,64.2c-1.1,2.7-3.7,4.6-6.8,4.6c-4,0-7.3-3.3-7.3-7.3c0-3.4,2.4-6.3,5.6-7.1c-0.8-2.1-2.6-5.5-3.1-6.6 c-0.5-1.1-1.7-8.1-2-9.4c-0.1-0.3-3.2,1.8-3.2,1.9c-0.2,0.2-2.3,5.8-2.4,6.1c0,0.2,0,0.9,0,0.9s1.1,0.1,1.7,2 c0.6,1.8,2.4,8.5,2.4,8.5s-0.5,0.5-0.5,0.5c2.3,7.7,1.5,11.1,2.5,13.3c1.3,3.2,1.7,2.8,2.8,5.5c0.8,2,1.7,9.6,2,10 c1.2,1.6,1.9,2.8,1.9,3.7c0,0.9-1.1,3.5-0.7,5.1c0.2,0.9,0.4,2.9,0.8,3.3c0,0,0.4,0.8,0.2,1.1c-0.1,0.1-0.2,0.3-0.1,0.4 c0.7,2.4,2.9,6.6-0.7,8.7h0.1c3.9-0.6,6.9-4,6.9-8.1V64.2z"/> </g> <g class="league-pass-text"> <g> <path fill="#fff" d="M105.7,109.5H94.1V10.8h18l12,81.4c-1.8-19.4-4.1-50.6-4.1-67V10.8h11.6v98.7h-16.4l-11.1-79.1 c1,17.7,1.7,38.8,1.7,50.7V109.5z"/> <path fill="#fff" d="M138.2,109.5V10.8h16.4c10.9,0,17.7,5.9,17.7,19.8v14.5c0,9-2.8,13.5-6.6,15.9c3.9,2.5,6.6,6.9,6.6,14.5 v14.4c0,13.5-7.2,19.6-17.7,19.6H138.2z M151.5,23.2v32.6h1.7c4.7,0,5.9-1.8,5.9-7.2V29.9c0-4.6-1.4-6.6-5.4-6.6H151.5z M151.5,66.7v30.4h2.2c4.1,0,5.4-2.3,5.4-7.1V73.3c0-4.8-1.5-6.6-5.9-6.6H151.5z"/> <path fill="#fff" d="M197.2,91h-8.3l-1.1,18.5h-13.4l9.7-98.7h18.8l9.4,98.7h-14L197.2,91z M189.5,79.8h7.1l-1.1-18.1 c-0.4-7.2-1.5-30-2.3-42.3h-0.6l-1.9,42.3L189.5,79.8z"/> </g> <g> <path fill="#fff" d="M599.1,93.3c0,3.9-0.7,5.8-3.3,5.8c-2.9,0-3.3-2.2-3.3-5.8v-9h-13.3v8c0,13.4,4.8,18.1,16.3,18.1 s16.9-6.6,16.9-19.1c0-6.9-2.9-15-10.5-24c-6.8-8-9.4-12.6-9.4-18.7c0-4.2,1-6.1,3.5-6.1c2.5,0,3.2,1.7,3.2,7.2v8.3h13.2v-8.7 c0-13.7-5-18.1-16.6-18.1c-11.9,0-16.5,7.8-16.5,18.8c0,10,4.6,17.9,11.1,25.5C596.8,83.1,599.1,88.3,599.1,93.3 M560.9,93.3 c0,3.9-0.7,5.8-3.3,5.8c-2.9,0-3.3-2.2-3.3-5.8v-9H541v8c0,13.4,4.8,18.1,16.3,18.1c11.5,0,16.9-6.6,16.9-19.1 c0-6.9-2.9-15-10.5-24c-6.8-8-9.4-12.6-9.4-18.7c0-4.2,1-6.1,3.5-6.1c2.5,0,3.2,1.7,3.2,7.2v8.3h13.2v-8.7 c0-13.7-5-18.1-16.6-18.1c-11.9,0-16.5,7.8-16.5,18.8c0,10,4.6,17.9,11.1,25.5C558.6,83.1,560.9,88.3,560.9,93.3 M515.7,92.8 V80.8c0-5,1.7-6.8,6.6-6.9v24c-1.1,0.4-2.2,0.7-3.2,0.7C516.2,98.6,515.7,96.4,515.7,92.8 M524.4,109.6h11.2V50.9 c0-14.3-4.6-19.7-16.5-19.7c-11.4,0-16.5,4.7-16.5,18.8v9.7h13v-9.7c0-5.5,0.8-6.9,3.3-6.9c2.5,0,3.3,1.2,3.3,6.9v15.5 c-12.5-1.7-19.9,3.7-19.9,15.9v15.4c0,9.4,3.7,13.6,10.7,13.6c4.7,0,8-2.5,10.1-5.5C523.6,106.7,524,108.5,524.4,109.6 M478.8,23.3c4.2,0,5.4,2.4,5.4,7.1v31.2c0,4.6-1.2,6.9-5.4,6.9h-2.2V23.3H478.8z M479.8,80.3c11.2,0,17.7-6.6,17.7-20.2V30.7 c0-13.6-6.5-19.9-17.7-19.9h-16.5v98.9h13.3V80.3H479.8z M425.9,49c0-4.4,1-5.8,3.3-5.8c2.4,0,3.3,1.4,3.3,5.8v16.8h-6.6V49z M445.8,91.2V79.5h-13.3v13.3c0,4.4-0.8,5.8-3.3,5.8c-2.5,0-3.3-1.4-3.3-5.8V74.5h19.9v-24c0-15.6-6.2-19.2-16.6-19.2 c-10.4,0-16.6,3.6-16.6,19.2v40.7c0,15.6,6.2,19.2,16.6,19.2C439.6,110.5,445.8,106.9,445.8,91.2 M395.5,109.6h11.2V32.1h-13.3 V98c-1,0.3-2.1,0.6-3.3,0.6c-2.4,0-3.3-1.4-3.3-4.6V32.1h-13.3v65.8c0,9,4.6,12.6,10.4,12.6c5.1,0,8.3-2.8,10.4-5.5 C394.7,106.9,395.1,108.5,395.5,109.6 M341.9,116c0-1.4,0.3-2.5,1-3.6c2.1,0.7,4.4,1.1,7.1,1.2c5.5,0.4,7.2,1,7.2,3.3 c0,2.9-2.5,3.9-6.6,3.9C346,120.9,341.9,119.6,341.9,116 M352.9,49v29.6c0,4.6-0.7,5.8-3.3,5.8c-2.4,0-3.3-1.2-3.3-5.8V49 c0-4.4,1.1-5.8,3.3-5.8C352.1,43.2,352.9,44.6,352.9,49 M368.4,115.2c0-9-4.4-13-13-14.1c-9.4-1.1-12.2-1.7-12.2-4.2 c0-0.3,0.1-0.7,0.4-1c1.8,0.4,3.7,0.6,6,0.6c10.5,0,16.6-3.6,16.6-19.2V50.5c0-2.6-0.1-4.8-0.6-6.8l3-0.8 c0.4-3.6,0.8-7.2,0.8-10.7c0-0.7-0.4-1-1.1-1c-3,0-5.4,1.2-6.8,3.5c-2.9-2.6-6.9-3.5-12-3.5c-10.4,0-16.6,3.6-16.6,19.2v26.7 c0,8.9,2.1,14,5.7,16.6c-2.9,2.1-4.8,4.8-4.8,8.3c0,3.7,1.7,6.4,4.4,8.2c-3.5,2.1-6.1,5.4-6.1,9.3c0,7.2,6.2,10.8,18.6,10.8 C363.2,130.4,368.4,123.6,368.4,115.2 M307.3,92.8V80.8c0-5,1.7-6.8,6.6-6.9v24c-1.1,0.4-2.2,0.7-3.2,0.7 C307.9,98.6,307.3,96.4,307.3,92.8 M316,109.6h11.2V50.9c0-14.3-4.6-19.7-16.5-19.7c-11.4,0-16.5,4.7-16.5,18.8v9.7h13v-9.7 c0-5.5,0.8-6.9,3.3-6.9c2.5,0,3.3,1.2,3.3,6.9v15.5C301.5,64,294,69.4,294,81.5v15.4c0,9.4,3.7,13.6,10.7,13.6 c4.7,0,8-2.5,10.1-5.5C315.2,106.7,315.6,108.5,316,109.6 M268.2,49c0-4.4,1-5.8,3.3-5.8s3.3,1.4,3.3,5.8v16.8h-6.6V49z M288.1,91.2V79.5h-13.3v13.3c0,4.4-0.8,5.8-3.3,5.8c-2.5,0-3.3-1.4-3.3-5.8V74.5h19.9v-24c0-15.6-6.2-19.2-16.6-19.2 c-10.4,0-16.6,3.6-16.6,19.2v40.7c0,15.6,6.2,19.2,16.6,19.2C281.9,110.5,288.1,106.9,288.1,91.2 M251.1,97.2h-10.9V10.8h-13.3 v98.9h24.2V97.2z"/> </g> </g> </g> </svg></a>
+            </div>
+            <div class="nbap-hamburger">
+                <div class="nbap-hamburger__dropdown-container js-dropdown-container">
+                    <ul class="nbap-hamburger__dropdown">
+                                                                                    <li class="nbap-hamburger__dropdown-item">
+                                    <a class="nbap-hamburger__dropdown-link" href="https://ca.nba.com/news" >All News and Stories</a>
+                                                                    </li>
+                                                            <li class="nbap-hamburger__dropdown-item">
+                                    <a class="nbap-hamburger__dropdown-link" href="https://ca.global.nba.com/schedule/" >Schedule</a>
+                                                                    </li>
+                                                            <li class="nbap-hamburger__dropdown-item">
+                                    <a class="nbap-hamburger__dropdown-link" href="https://ca.nba.com/videos" >Videos</a>
+                                                                    </li>
+                                                            <li class="nbap-hamburger__dropdown-item">
+                                    <a class="nbap-hamburger__dropdown-link" href="https://ca.nba.com/contestant/toronto-raptors/news/dxjosqw1acmrjm1gt2wmis1ru" >Raptors Central</a>
+                                                                            <ul class="nbap-hamburger__dropdown">
+                                                                                    <li class="nbap-hamburger__dropdown-item nbap-hamburger__dropdown-item--secondary">
+                                                <a class="nbap-hamburger__dropdown-link nbap-hamburger__dropdown-link--secondary" href="https://ca.nba.com/contestant/toronto-raptors/news/dxjosqw1acmrjm1gt2wmis1ru" >News and Stories</a>
+                                            </li>
+                                                                                    <li class="nbap-hamburger__dropdown-item nbap-hamburger__dropdown-item--secondary">
+                                                <a class="nbap-hamburger__dropdown-link nbap-hamburger__dropdown-link--secondary" href="https://ca.global.nba.com/teams/schedule/#!/raptors" >2019-20 Schedule</a>
+                                            </li>
+                                                                                    <li class="nbap-hamburger__dropdown-item nbap-hamburger__dropdown-item--secondary">
+                                                <a class="nbap-hamburger__dropdown-link nbap-hamburger__dropdown-link--secondary" href="https://ca.global.nba.com/teams/leaders/#!/raptors" >Stats</a>
+                                            </li>
+                                                                                    <li class="nbap-hamburger__dropdown-item nbap-hamburger__dropdown-item--secondary">
+                                                <a class="nbap-hamburger__dropdown-link nbap-hamburger__dropdown-link--secondary" href="https://ca.global.nba.com/teams/roster/#!/raptors" >Roster</a>
+                                            </li>
+                                                                                </ul>
+                                                                    </li>
+                                                            <li class="nbap-hamburger__dropdown-item">
+                                    <a class="nbap-hamburger__dropdown-link" href="https://ca.global.nba.com/playerindex/" >Players</a>
+                                                                            <ul class="nbap-hamburger__dropdown">
+                                                                                    <li class="nbap-hamburger__dropdown-item nbap-hamburger__dropdown-item--secondary">
+                                                <a class="nbap-hamburger__dropdown-link nbap-hamburger__dropdown-link--secondary" href="https://ca.global.nba.com/draft/" >2019 Draft</a>
+                                            </li>
+                                                                                    <li class="nbap-hamburger__dropdown-item nbap-hamburger__dropdown-item--secondary">
+                                                <a class="nbap-hamburger__dropdown-link nbap-hamburger__dropdown-link--secondary" href="https://ca.nba.com/news/2019-nba-free-agency-tracker-available-players-news-updates-kawhi-leonard-kevin-durant-kyrie-irving/1g8sb8rs7j9k918xjen407si0c" >Offseason Free Agency Movement</a>
+                                            </li>
+                                                                                </ul>
+                                                                    </li>
+                                                            <li class="nbap-hamburger__dropdown-item">
+                                    <a class="nbap-hamburger__dropdown-link" href="https://ca.global.nba.com/teamindex/" >Teams</a>
+                                                                    </li>
+                                                            <li class="nbap-hamburger__dropdown-item">
+                                    <a class="nbap-hamburger__dropdown-link" href="https://ca.global.nba.com/statistics" >Stats</a>
+                                                                            <ul class="nbap-hamburger__dropdown">
+                                                                                    <li class="nbap-hamburger__dropdown-item nbap-hamburger__dropdown-item--secondary">
+                                                <a class="nbap-hamburger__dropdown-link nbap-hamburger__dropdown-link--secondary" href="https://ca.global.nba.com/statistics/teamstats" >Team Stats</a>
+                                            </li>
+                                                                                    <li class="nbap-hamburger__dropdown-item nbap-hamburger__dropdown-item--secondary">
+                                                <a class="nbap-hamburger__dropdown-link nbap-hamburger__dropdown-link--secondary" href="https://ca.global.nba.com/statistics/leagueleaders" >League Leaders</a>
+                                            </li>
+                                                                                    <li class="nbap-hamburger__dropdown-item nbap-hamburger__dropdown-item--secondary">
+                                                <a class="nbap-hamburger__dropdown-link nbap-hamburger__dropdown-link--secondary" href="http://stats.nba.com/teams/advanced/?sort=W&amp;dir=-1" >Advanced Stats</a>
+                                            </li>
+                                                                                </ul>
+                                                                    </li>
+                                                            <li class="nbap-hamburger__dropdown-item">
+                                    <a class="nbap-hamburger__dropdown-link" href="https://ca.nba.com/news/2019-wnba-broadcast-canadian-broadcast-schedule/1067sfsb2urpp1l1n3w7634z0e" >WNBA</a>
+                                                                    </li>
+                                                            <li class="nbap-hamburger__dropdown-item">
+                                    <a class="nbap-hamburger__dropdown-link" href="https://ca.nba.com/category/nba-finals/news/175n5pcu13g1j131z70cl9slcx" >2019 NBA Finals</a>
+                                                                            <ul class="nbap-hamburger__dropdown">
+                                                                                    <li class="nbap-hamburger__dropdown-item nbap-hamburger__dropdown-item--secondary">
+                                                <a class="nbap-hamburger__dropdown-link nbap-hamburger__dropdown-link--secondary" href="https://ca.global.nba.com/playoffpicture/" >Full Playoff Bracket</a>
+                                            </li>
+                                                                                </ul>
+                                                                    </li>
+                                                            <li class="nbap-hamburger__dropdown-item">
+                                    <a class="nbap-hamburger__dropdown-link" href="https://ca.global.nba.com/scores/" >Scores</a>
+                                                                    </li>
+                                                            <li class="nbap-hamburger__dropdown-item">
+                                    <a class="nbap-hamburger__dropdown-link" href="https://ca.global.nba.com/standings/" >Standings</a>
+                                                                    </li>
+                                                                            <li class="nbap-hamburger__dropdown-item nbap-hamburger__store-logo">
+    <a rel="noopener noreferrer" data-track="Click" data-type="Exit" data-id="NBA store" data-pos="Nav" class="nbap-hamburger__dropdown-link" href="https://www.nbastore.ca/?_s=bm-nbaca-hp" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 148.32"><title>NBA Store CA</title><path d="M12.48,148.32a7.2,7.2,0,0,0-1-.44A15.31,15.31,0,0,1,0,133.1V15.26A15.26,15.26,0,0,1,15.22,0H50.14A15.31,15.31,0,0,1,65.48,15.41V132.88a15.35,15.35,0,0,1-12.55,15.23,1.25,1.25,0,0,0-.37.21ZM61.88,14.4a22.57,22.57,0,0,0-.69-3c-1.33-3.56-3.66-6.24-7.43-7.21A26.83,26.83,0,0,0,48,3.63c-3-.1-6,0-9.23,0,5.68,3.49,6.58,5.35,4,10.75.64,1.08.63,1.55-.18,2.68s-1.85,2.49-2.77,3.73c-.47.63-.8,1.46-1.41,1.85A2,2,0,0,0,37.49,25a17.19,17.19,0,0,1,2.19,1.16c1.48,1.08,2.81,2.37,4.35,3.35,4,2.55,5.47,6.45,5.88,10.91.2,2.16.2,4.35.51,6.49.53,3.62,1.11,7.23,3.06,10.47a13.09,13.09,0,0,1,1.21,3.8c.33,1.37.45,2.79.77,4.16a2,2,0,0,0,.86,1c1.2.83,2.45,1.58,3.66,2.39a1.56,1.56,0,0,1,.39.59c.37.68.72,1.37,1.08,2l.23.73.24-.06V18C61.92,16.8,61.9,15.6,61.88,14.4Zm-.4,66.24a12.4,12.4,0,0,1-3.7,4,10,10,0,0,1-13.87-2.28,9.76,9.76,0,0,1-1.15-10.77,10.52,10.52,0,0,1,7-5.72c-.73-1.53-1.44-3-2.11-4.45a39.8,39.8,0,0,1-2.71-6.15c-1-3.87-1.64-7.84-2.46-11.76a1.76,1.76,0,0,0-.52-.72c-1.45.93-3.43,1.59-4.18,2.93-1.51,2.75-2.33,5.88-3.51,8.82a1,1,0,0,0,.44,1.4,4.94,4.94,0,0,1,2,3.11c1,3.43,1.89,6.91,2.95,10.32.28.9.24,1.48-.33,1.85.59,2.49,1.27,4.83,1.67,7.22.47,2.75.67,5.55,1,8.32.43,3.45,2.07,6.41,3.78,9.34a11.55,11.55,0,0,1,1.45,3.33c.75,3.57,1.27,7.18,2,10.75a7.59,7.59,0,0,0,1.22,3.34,7.4,7.4,0,0,1,1.45,7.54,10.05,10.05,0,0,0-.24,4.27A47.83,47.83,0,0,0,53,130.67a2.78,2.78,0,0,1,.05.58,12.74,12.74,0,0,0,.13,2.15c.23,1,.71,1.92.94,2.92a13.51,13.51,0,0,1,.52,3.71,4.77,4.77,0,0,1-2.8,4.35c.23.15.37.33.48.31a11.74,11.74,0,0,0,9.59-11c0-.28,0-.56,0-.84V80.05l-.27,0Zm-46.59,64.1A5.88,5.88,0,0,0,16,145h33.1l1,0-.11-.42A3,3,0,0,1,48,141.38c.13-2.89.44-5.77.65-8.65a3,3,0,0,0-.51-2.47c-.37-.42-.27-1.26-.34-1.91,0-.42.11-.89,0-1.24-.89-2-1.86-3.92-2.77-5.89-.41-.87-1.13-1.66-.67-2.77s-.59-4.24-1.64-4.84a53.17,53.17,0,0,1-9.82-7.71c-2.65-2.49-5.41-4.9-7.48-7.92-2.78-4.07-5.58-8.14-8.16-12.33a3.4,3.4,0,0,0-3-1.93,1.56,1.56,0,0,1-1-.78c-1-2.14-1.95-4.33-3-6.46C8.47,73,6.71,69.63,7.43,65.56c.5-2.79.52-5.73,3-7.77a1.68,1.68,0,0,0,.27-1.41c0-.23-.68-.43-1.06-.46-.84-.07-1.69,0-2.52,0a1.74,1.74,0,0,1-1.78-1.07,8.8,8.8,0,0,1,.09-6.9c1.53-3.36,3-6.76,4.5-10.13,1.3-2.89,2.55-5.82,4-8.64,1.3-2.52,3.05-4.71,6.08-5.27,2.35-.43,4.72-.77,7.09-1.05,1.71-.2,2.33-.61,2.7-2.29a24.07,24.07,0,0,0,.43-3.05,1.72,1.72,0,0,0-.39-1c-.84-1.14-.57-2.45-.48-3.68,0-.31.8-.55,1.34-.9.44-3.09,0-6.83,4.45-8.07l-.31-.24H33.67c-6,0-11.92,0-17.87,0a14.92,14.92,0,0,0-3.07.25,11.44,11.44,0,0,0-9.1,10.81q-.09,59.46,0,118.92a10.39,10.39,0,0,0,.95,4.33A11.1,11.1,0,0,0,14.89,144.74Z" fill="#fff"/><path d="M576,144.72H564.26c-.44-1.83-.88-3.63-1.32-5.43-1.15,1-2.22,2.18-3.45,3.1a17.18,17.18,0,0,1-16,2.7c-4.94-1.51-7.44-5.31-8.47-10.12a33,33,0,0,1-.71-6.65c-.08-8.12,0-16.24,0-24.35a27.64,27.64,0,0,1,1.48-9.42c2.66-7.28,8.08-11.24,15.53-12.41a104.94,104.94,0,0,1,10.5-.65v-1c0-7.8.05-15.6,0-23.39a36.18,36.18,0,0,0-.69-6.89c-.63-3.14-2.56-4.45-5.89-4.42s-5.16,1.36-5.76,4.46a42.11,42.11,0,0,0-.64,7c-.1,4.28,0,8.56,0,12.84v1.32H534.64c-.06-.09-.13-.16-.13-.22.15-6.87.14-13.75.53-20.6a25.74,25.74,0,0,1,1.88-7.5c1.94-5.18,5.83-8.27,11.19-9.48a33.84,33.84,0,0,1,13.45-.2c7.34,1.31,11.5,6,13.2,13,.47,2,.67,4,1,6A2.88,2.88,0,0,0,576,53ZM561.8,91.78c-1.32.06-2.48.08-3.62.17-5.9.5-9,3.3-9.22,9-.27,8-.14,16-.17,24,0,.63,0,1.27.1,1.91.41,4.68,3.06,6.81,7.69,6a30.57,30.57,0,0,0,4.09-1.26c.88-.27,1.16-.8,1.16-1.77q-.06-18.36,0-36.71Z" fill="#fff"/><path d="M116.12,3.76h13.41v140.9H110.2L93.76,26.21l-.15,0c.56,13.09,1.25,26.17,1.63,39.27s.52,26.37.62,39.56,0,26.38,0,39.62H82.64V3.8h20.53Q111.48,63,119.8,122.23H120c-.85-13.09-1.85-26.16-2.5-39.26s-1.12-26.34-1.35-39.52S116.12,17.05,116.12,3.76Z" fill="#fff"/><path d="M140.1,144.72V3.87c.12-.06.19-.13.26-.13,7,0,14.08-.11,21.1.16,5.46.21,10.56,1.77,14.5,5.9A22.25,22.25,0,0,1,181.62,22a80.62,80.62,0,0,1,1,11c.14,6.47.18,13-.07,19.43A55.08,55.08,0,0,1,181,62.89a19.43,19.43,0,0,1-7.55,11.8c1.23,1.15,2.55,2.2,3.65,3.43a22.55,22.55,0,0,1,5.22,12.13,67.56,67.56,0,0,1,.73,9.42q.07,10.32-.23,20.62a36.12,36.12,0,0,1-2.12,11c-2.49,7.07-7.43,11.31-14.76,12.64a49.21,49.21,0,0,1-7.85.75c-5.6.11-11.2,0-16.8,0Zm14.52-127v51.4c.93,0,1.77,0,2.6,0,5.78-.18,8.79-2.57,10-8.18a35.14,35.14,0,0,0,.91-7c.12-7.23.11-14.47.06-21.7a23.22,23.22,0,0,0-1.64-9.13A7.92,7.92,0,0,0,160,18C158.24,17.77,156.44,17.77,154.62,17.68Zm0,64.19v48.87c1.93,0,3.81.14,5.66,0a7.37,7.37,0,0,0,6.86-5.45,26.35,26.35,0,0,0,1.32-6.78c.23-7,.26-14.06.23-21.09a29.47,29.47,0,0,0-1.34-9.68c-1.18-3.38-3.46-5.44-7-5.8A56.84,56.84,0,0,0,154.58,81.87Z" fill="#fff"/><path d="M218.39,113.76H204.44q-1.19,15.46-2.37,30.92H187.4q7.2-70.52,14.4-140.91c.32,0,.51,0,.71,0,6.36,0,12.72,0,19.08,0,.7,0,1.06.09,1.14.93q2.1,22.5,4.27,45,2.08,22.08,4.16,44.15t4.23,44c.22,2.27.41,4.53.62,6.87H220.76Q219.59,129.27,218.39,113.76ZM217,99.44q-2.89-41.17-5.76-82.06-2.7,40.88-5.42,82.06Z" fill="#fff"/><path d="M284.36,50.72H270v-1.3c0-7,.05-14,0-21a39.44,39.44,0,0,0-.67-6.78c-.84-4.49-4-5.88-8.08-5a5.4,5.4,0,0,0-3.91,3.57,20.54,20.54,0,0,0-1.25,8c0,5,0,10.08.23,15.1.34,6.82,2.82,13,6.47,18.67,4.07,6.35,8.34,12.58,12.41,18.92,3.6,5.59,6.69,11.47,7.92,18.08a60.8,60.8,0,0,1,1.07,10c.12,6.31.48,12.64-.68,18.9a28,28,0,0,1-3.08,8.88,17.07,17.07,0,0,1-11.1,8.46,28.51,28.51,0,0,1-13.89-.11c-7.27-1.8-11.24-6.83-12.9-13.81a45,45,0,0,1-1.23-9.24c-.17-7.79-.05-15.59-.05-23.47H255.8v1.26c0,7.72,0,15.44.08,23.16a18.37,18.37,0,0,0,1,5.38c.83,2.51,2.8,3.59,5.59,3.69s4.82-1,5.77-3.56a18.15,18.15,0,0,0,1.17-5.46c.16-4.67.14-9.36,0-14a29.23,29.23,0,0,0-4.58-14.45c-3.07-5-6.36-10-9.6-14.89-4.09-6.25-8-12.6-10.5-19.69a56.58,56.58,0,0,1-3.2-18.44q-.1-7.61.2-15.22a33.79,33.79,0,0,1,2.83-12.54c3-6.69,8.21-10.31,15.44-11.07a29.65,29.65,0,0,1,10.94.76c6.23,1.7,9.72,6.07,11.56,12a46.67,46.67,0,0,1,1.9,13.48c.08,7.08,0,14.16,0,21.23C284.4,50.31,284.38,50.47,284.36,50.72Z" fill="#fff"/><path d="M322.84,89.52c0-10.76,0-21.52,0-32.28a37.37,37.37,0,0,1,2.27-13.63,15.44,15.44,0,0,1,11.86-10,34.22,34.22,0,0,1,13.11-.13c6.95,1.23,11.11,5.52,13,12.19a42.51,42.51,0,0,1,1.46,11.49q0,32.34,0,64.67a39.37,39.37,0,0,1-1.9,12.74c-2.14,6.26-6.49,9.88-13,10.93a37.1,37.1,0,0,1-11.57,0c-7.05-1.09-11.5-5.11-13.58-11.87a40.93,40.93,0,0,1-1.64-11.94C322.81,111,322.84,100.23,322.84,89.52Zm14.48-.14q0,16.86,0,33.71a30.35,30.35,0,0,0,.38,4.76c.55,3.5,2.48,5.11,5.95,5.15s5.54-1.48,6.19-5a22.3,22.3,0,0,0,.4-4.16q0-34.31,0-68.61A21.8,21.8,0,0,0,349.6,50c-.71-2.91-2.69-4.22-5.86-4.21s-5.11,1.31-5.78,4.3a26.42,26.42,0,0,0-.61,5.68C337.3,67,337.32,78.19,337.32,89.38Z" fill="#fff"/><path d="M423.16,95.15v1.31c0,8.52-.05,17,0,25.55a34.18,34.18,0,0,0,.69,6.77c.62,3,2.54,4.21,5.81,4.22s5.21-1.29,5.84-4.2a32,32,0,0,0,.64-6.18c.09-5.16,0-10.32,0-15.48v-1.26h14.17c0,.05.1.11.1.18-.08,6.64,0,13.28-.32,19.9a34.73,34.73,0,0,1-1.91,9.21c-2,6-6.49,9.29-12.69,10.28a35.48,35.48,0,0,1-12.75-.2c-6.15-1.25-10.12-5-12.15-10.83A41.14,41.14,0,0,1,408.73,121q0-31.44,0-62.87A40.49,40.49,0,0,1,410.87,44a15.48,15.48,0,0,1,12-10.38A34.22,34.22,0,0,1,436,33.44c7.06,1.24,11.21,5.63,13.06,12.4a47.25,47.25,0,0,1,1.44,12.58q0,17.94,0,35.88v.85Zm13-10.53c0-.36.07-.67.07-1,0-9.24,0-18.48,0-27.72a26.18,26.18,0,0,0-.7-5.92c-.74-3-2.7-4.23-6-4.18s-5,1.31-5.61,4.31a35.22,35.22,0,0,0-.67,6.89c-.07,8.75,0,17.52,0,26.28v1.32Z" fill="#fff"/><path d="M524.24,71H510.05c0-.35-.05-.7-.05-1.05,0-5,.06-10.08,0-15.11a21.12,21.12,0,0,0-.75-5.19c-.79-2.79-2.74-3.93-6-3.86-3,.07-4.8,1.27-5.46,4.05a25.13,25.13,0,0,0-.7,5.79q-.07,33.72,0,67.44a25.47,25.47,0,0,0,.75,6c.67,2.69,2.56,3.84,5.61,3.86s5.05-1.08,5.8-3.77a21.1,21.1,0,0,0,.74-5.18c.09-5.6,0-11.2,0-16.8V106h14.16a3.65,3.65,0,0,1,.12.66c0,6.08,0,12.16-.15,18.23a31,31,0,0,1-1.94,10.19,15.14,15.14,0,0,1-11.86,10.18,34.61,34.61,0,0,1-13.34.06c-7.32-1.37-11.54-6-13.09-13.09a52.27,52.27,0,0,1-1.24-10.79c-.12-21.28-.07-42.56-.05-63.84A40.74,40.74,0,0,1,484.3,45.2c2.28-7.26,7.29-11.31,14.9-12.06a38.17,38.17,0,0,1,10.62.29c6.79,1.24,11.12,5.29,12.83,11.87a52,52,0,0,1,1.52,10.39C524.42,60.75,524.24,65.83,524.24,71Z" fill="#fff"/><path d="M309.44,34.08h7.66V46.8h-7.62v1.4q0,38.82,0,77.64a16.46,16.46,0,0,0,.3,3.21,3.93,3.93,0,0,0,3.76,3.43c.67.08,1.35.09,2,.11s1.35,0,2.1,0v12.19a18.2,18.2,0,0,1-3.07.49,55.72,55.72,0,0,1-9-.21c-5.75-.9-8.83-4.78-9.94-10.28A34.94,34.94,0,0,1,295,128q-.07-39.84,0-79.68v-1.5h-5.25V34.09H295V13.38l14.45-2.18Z" fill="#fff"/><path d="M389,144.67H374.65V34.08c3.47,0,6.9,0,10.33,0,.28,0,.71.45.81.77.64,2.18,1.22,4.38,1.82,6.57.08.3.15.6.25,1,4.55-7.35,10.28-10.62,15.53-8.88V48.72c-2.05,0-4.08-.12-6.09,0-2.86.22-5.47,1.13-7.26,3.6a5,5,0,0,0-1,3.1q0,43.9,0,87.82Z" fill="#fff"/><path d="M475.72,136a9.12,9.12,0,1,1-18.24,0,9.12,9.12,0,0,1,18.24,0Z" fill="#fff"/><path d="M14.89,144.74a11.1,11.1,0,0,1-10.3-6.82,10.39,10.39,0,0,1-.95-4.33q-.08-59.46,0-118.92a11.44,11.44,0,0,1,9.1-10.81,14.92,14.92,0,0,1,3.07-.25c5.95,0,11.91,0,17.87,0h1.17l.31.24c-4.49,1.24-4,5-4.45,8.07-.54.35-1.31.59-1.34.9-.09,1.23-.36,2.54.48,3.68a1.72,1.72,0,0,1,.39,1,24.07,24.07,0,0,1-.43,3.05c-.37,1.68-1,2.09-2.7,2.29-2.37.28-4.74.62-7.09,1.05-3,.56-4.78,2.75-6.08,5.27-1.45,2.82-2.7,5.75-4,8.64-1.52,3.37-3,6.77-4.5,10.13a8.8,8.8,0,0,0-.09,6.9,1.74,1.74,0,0,0,1.78,1.07c.83.06,1.68,0,2.52,0,.38,0,1,.23,1.06.46a1.68,1.68,0,0,1-.27,1.41c-2.48,2-2.5,5-3,7.77-.72,4.07,1,7.47,2.75,10.92,1.06,2.13,2,4.32,3,6.46a1.56,1.56,0,0,0,1,.78,3.4,3.4,0,0,1,3,1.93c2.58,4.19,5.38,8.26,8.16,12.33,2.07,3,4.83,5.43,7.48,7.92a53.17,53.17,0,0,0,9.82,7.71c1,.6,2.11,3.72,1.64,4.84s.26,1.9.67,2.77c.91,2,1.88,3.91,2.77,5.89.16.35,0,.82,0,1.24.07.65,0,1.49.34,1.91a3,3,0,0,1,.51,2.47c-.21,2.88-.52,5.76-.65,8.65a3,3,0,0,0,1.89,3.13,9.11,9.11,0,0,1-1.36.2Q31.73,144.74,14.89,144.74Z" fill="#1d428a"/><path d="M61.88,133.68a11.74,11.74,0,0,1-9.59,11c-.11,0-.25-.16-.48-.31a4.77,4.77,0,0,0,2.8-4.35,13.51,13.51,0,0,0-.52-3.71c-.23-1-.71-1.93-.94-2.92a12.74,12.74,0,0,1-.13-2.15,2.78,2.78,0,0,0-.05-.58,47.83,47.83,0,0,1-1.32-5.34,10.05,10.05,0,0,1,.24-4.27,7.4,7.4,0,0,0-1.45-7.54,7.59,7.59,0,0,1-1.22-3.34c-.71-3.57-1.23-7.18-2-10.75a11.55,11.55,0,0,0-1.45-3.33c-1.71-2.93-3.35-5.89-3.78-9.34-.34-2.77-.54-5.57-1-8.32-.4-2.39-1.08-4.73-1.67-7.22.57-.37.61-1,.33-1.85C38.6,66,37.73,62.48,36.71,59.05a4.94,4.94,0,0,0-2-3.11,1,1,0,0,1-.44-1.4c1.18-2.94,2-6.07,3.51-8.82.75-1.34,2.73-2,4.18-2.93a1.76,1.76,0,0,1,.52.72c.82,3.92,1.44,7.89,2.46,11.76a39.8,39.8,0,0,0,2.71,6.15c.67,1.47,1.38,2.92,2.11,4.45a10.52,10.52,0,0,0-7,5.72,9.76,9.76,0,0,0,1.15,10.77,10,10,0,0,0,13.87,2.28,12.4,12.4,0,0,0,3.7-4A9.34,9.34,0,0,1,61.67,82q0,25.14,0,50.28A10.89,10.89,0,0,0,61.88,133.68Z" fill="#c7112f"/><path d="M61.45,71.45c-.36-.68-.71-1.37-1.08-2a1.56,1.56,0,0,0-.39-.59c-1.21-.81-2.46-1.56-3.66-2.39a2,2,0,0,1-.86-1c-.32-1.37-.44-2.79-.77-4.16a13.09,13.09,0,0,0-1.21-3.8c-1.95-3.24-2.53-6.85-3.06-10.47-.31-2.14-.31-4.33-.51-6.49C49.5,36,48.07,32.09,44,29.54c-1.54-1-2.87-2.27-4.35-3.35A17.19,17.19,0,0,0,37.49,25a2,2,0,0,1,.89-2.42c.61-.39.94-1.22,1.41-1.85.92-1.24,1.87-2.47,2.77-3.73s.82-1.6.18-2.68c2.63-5.4,1.73-7.26-4-10.75C42,3.6,45,3.53,48,3.63a26.83,26.83,0,0,1,5.74.61c3.77,1,6.1,3.65,7.43,7.21a22.57,22.57,0,0,1,.69,3,10.89,10.89,0,0,0-.19,1.38q0,27.17,0,54.32A7.91,7.91,0,0,1,61.45,71.45Z" fill="#c7112e"/><path d="M61.45,71.45a7.91,7.91,0,0,0,.22-1.35q0-27.15,0-54.32a10.89,10.89,0,0,1,.19-1.38c0,1.2,0,2.4,0,3.6V72.12l-.24.06Z" fill="#d54d63"/><path d="M61.88,133.68a10.89,10.89,0,0,1-.19-1.38q0-25.14,0-50.28a9.34,9.34,0,0,0-.19-1.38l.17-.63.27,0v52.79C61.92,133.12,61.9,133.4,61.88,133.68Z" fill="#d54c62"/><path d="M14.89,144.74q16.83,0,33.67,0a9.11,9.11,0,0,0,1.36-.2c0,.14.08.28.11.42l-1,0H16A5.88,5.88,0,0,1,14.89,144.74Z" fill="#c6cfe1"/></svg></a>
+</li>
+
+                        <li class="nbap-hamburger__dropdown-item nbap-hamburger__nba-jr-logo">
+    <a rel="noopener noreferrer" data-track="Click" data-type="Exit" data-id="NBA jr" data-pos="Nav" class="nbap-hamburger__dropdown-link" href="http://jrnba.ca" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 294.77"><path d="M250.94 0h-58.95a26.09 26.09 0 0 0-26 26.06v199.59a26.1 26.1 0 0 0 26 26.09h58.91a26.15 26.15 0 0 0 26.11-26.09V26.06A26.1 26.1 0 0 0 250.94 0" fill="#fff"/><path d="M248.41 221.82c-3.2-2.85-1.07-4.06-1.2-5.19-2.11-8.72-9-14-5.45-16.87-.88-2.88-2.68-6.49-2.61-6.49-10.8-6.19-20-16.26-21.55-17.74-1.89-2-5.12-4.12-5.72-5.79-2.59-2.42-15.32-20.42-18.28-27.07l-5.16-.73c-2.35-9.62-10.15-17.62-10.38-27.25-.08-3.64 1.64-11.43 2.28-13s3.63-4.16 3.63-4.16v-2.57c-11.26.32-8-.83-10-5.21-1.36-3-.39-3.7.11-5.8 1.51-6.21 6.53-15.78 8.6-20.13.64-2.2 2.81-7.49 2.81-7.49 8.39-17.09 11.53-15.83 21.5-16.8l.49-.7c10-.44 8.35-1.19 9.76-10.81-1.45.62-1.89-3-1.89-3-.79-5.47 1.52-4.43 2.62-4.55.23-9 1.15-11.83 7.64-14.31h-33.6a19.92 19.92 0 0 0-19.93 19.92v199.57a19.93 19.93 0 0 0 19.93 19.93h58.93c-6.75-3.64-2.77-10.58-2.53-23.76" fill="#1d428a"/><path d="M236.29 46.15l.06.85c1.8 1 2.71 1.91 4.52 3.07 4.81 3 10.73 8.4 10 26.94 1.35 4 1.94 12 3.19 14.53 2.5 5 4.17 8.19 4.91 12.88 0 0 .72 7.29 1.66 7.82 5 1.12 3.53 1.61 4.26 2.46s3.64.95 3.64 3.63a17.16 17.16 0 0 1 2.29 4.15V26.06a19.93 19.93 0 0 0-19.89-19.91h-19c3.05 1.08 4.78 2.37 5.79 4.4 2.46.22 5.38 5.73.83 13.87 2 1.34.44 3.35-1 5.68-.42.75-.88 2.07-2.23 2-1.73 3.64-3.82 7.17-5.4 7.39-.48.59-.82 2.16-.1 2.89a27.28 27.28 0 0 1 6.54 3.79M270.83 135.55a17.77 17.77 0 1 1-20.72-23.84c-2-5.12-6.37-13.42-7.65-16.15s-4.14-19.59-4.77-22.93c-.14-.73-7.66 4.36-7.68 4.68-.44.42-5.64 14-5.86 14.74a22.57 22.57 0 0 0-.12 2.28s2.56.31 4 4.78 5.89 20.72 5.89 20.72a11.47 11.47 0 0 1-1.25 1.17c5.61 18.78 3.65 26.86 6.16 32.37 3.17 7.76 4 6.74 6.74 13.26 1.94 4.76 4.12 23.45 4.84 24.28 3 3.84 4.66 6.84 4.66 9s-2.57 8.62-1.63 12.37c.57 2.2.86 7.15 1.89 8.09 0 0 .94 1.86.48 2.68-.13.29-.4.72-.28 1.06 1.67 5.9 7.06 15.95-1.67 21.22h.19a19.79 19.79 0 0 0 16.74-19.69z" fill="#c8102e"/><path d="M338.56 86.52v159h-32.19V57.68h27.16a92.42 92.42 0 0 1 2.35 10.06c5.7-6.7 13.75-12.07 25.82-12.07 14.76 0 25.15 9.05 25.15 30.52v159.29h-32.19V95.91c0-7.71-2-11.4-8.05-11.4a20.45 20.45 0 0 0-8.05 2M449.23 207.59V95.24c0-7.37-2.34-10.73-8-10.39a15.79 15.79 0 0 0-8 1.67v130.12a20.17 20.17 0 0 0 8 1.68c6 0 8-3.36 8-10.73m-18.44 27.83l-2.68 10.06h-27.17V6.04h32.2v58.69c5-5 12.4-9.06 22.8-9.06 15.43 0 25.49 9.06 25.49 31.86v129.45c0 21.12-10.06 30.51-24.82 30.51-12.74 0-20.79-5.7-25.82-12.07M543.81 216.98v-57.66c-12.08.33-16.1 4-16.1 16.09v29.18c0 8.72 1.34 13.75 8.05 13.75a22.72 22.72 0 0 0 8-1.34m2 17.1c-5 7-13.08 13.41-24.48 13.41-16.77 0-25.82-10.06-25.82-32.86V177.4c0-29.51 18.1-42.59 48.29-38.56v-37.52c0-13.75-2-16.77-8-16.77s-8.05 3-8.05 16.77v23.47h-31.52v-23.47c0-34.21 12.41-45.61 39.91-45.61 29.18 0 39.91 13.08 39.91 47.62v142.15h-27.16a104.36 104.36 0 0 1-3-11.4M46.62 258.22c0 28.84-10.06 36.55-28.51 36.55A93.05 93.05 0 0 1 0 293.1v-26.5h3c10.06 0 11.4-3 11.4-11.74V57.68h32.2zM52.48 25.8A20.46 20.46 0 1 1 32.02 5.32a20.46 20.46 0 0 1 20.46 20.46M146.75 225.19a20.46 20.46 0 1 1-20.46-20.46 20.46 20.46 0 0 1 20.46 20.46M60.7 245.48V57.68h25.48c1 3.35 2.35 8.72 3.69 15.09 3.69-9.39 10.07-16.45 19.42-16.45a21.69 21.69 0 0 1 6.71 1.34v34.2h-10.03c-6.71 0-10.73 1-13.08 5.37v148.25z" fill="#fff"/></svg></a>
+</li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+    </div>
+</header>
+<div class="nbap-header__spacer"></div>
+
+        
+        <div class="commercial">
+    <div class="commercial__container">
+        <div data-role="ad" data-name="topBanner" class="commercial__ad commercial__top-banner" data-slot-id="/67970281/DISPLAY_OWNED_GBL/NBA_Responsive_Perform/Homepage/Top_Banner" data-empty="true">
+    <div  id="placement--5d8c08e2738d14.39040927" data-state="unloaded"></div>
+    <script type="text/javascript">
+        window.ads.push({"name":"topBanner","slotName":"\/67970281\/DISPLAY_OWNED_GBL\/NBA_Responsive_Perform\/Homepage\/Top_Banner","uuid":"placement--5d8c08e2738d14.39040927","className":"commercial__ad commercial__top-banner","defaultSize":[[970,90],[728,90],[970,250],[320,50]],"position":"Top_Banner","sizeMapping":[{"viewport":[970,250],"slot":[[970,250],[970,90],[728,90]]},{"viewport":[760,100],"slot":[728,90]},{"viewport":[0,0],"slot":[320,50]}],"lazyLoad":true,"amazonTam":true,"refreshOnBreakPointChange":true});
+    </script>
+</div>
+
+        
+    </div>
+</div>
+
+<div class="sib-scoreboard-widget-container"
+     data-src-urls="{&quot;sib3Url&quot;:&quot;\/\/ca.global.nba.com\/articles\/licensee_widget_scoreboard_sib3.html&quot;,&quot;sib4Url&quot;:&quot;\/\/ca.global.nba.com\/articles\/licensee_widget_scoreboard.html&quot;,&quot;sibFinalsUrl&quot;:&quot;\/\/ca.global.nba.com\/articles\/licensee_widget_finals_scoreboard.html&quot;}">
+  <section class="grid section--sib-widget section--mobile-widget js-load-sib-mobile"></section>
+  <section class="grid section--sib-widget section--desktop-widget js-load-sib-desktop"></section>
+</div>
+
+<section class="grid section--news">
+    <h1 class="header header--underline">Featured NBA News</h1>
+    <section class="card-group card-group--feature-headlines-commercial">
+        <div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/84/fd/irving-durant-nbajam-ftr_ounm8c21gbvm1030m26kr30p0.jpg?t=1818930813&amp;w={width}" data-sizes="auto" alt="irving-durant-nbajam-ftr">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/84/fd/irving-durant-nbajam-ftr_ounm8c21gbvm1030m26kr30p0.jpg?t=1818930813&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Durant and Irving: the ultimate video game boss </div>
+        <div class="card__author"> Kyle Irving </div>
+    </div>
+    <a data-track="Click" title="Durant and Irving: the ultimate video game boss" data-id="https://ca.nba.com/news/nba-duos-nba-jam-kevin-durant-kyrie-irving-brooklyn-nets/io9t9l7ytbie1x1ynhddj1hkm" data-type="hero interaction" href="https://ca.nba.com/news/nba-duos-nba-jam-kevin-durant-kyrie-irving-brooklyn-nets/io9t9l7ytbie1x1ynhddj1hkm" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569433337000" datetime="2019-09-25T13:42:17-04:00"> 6h ago </span>
+            <a href="https://ca.nba.com/contestant/brooklyn-nets/news/a6a8ao1fyhpxswr8sizvg9hwa" class="card__label card__label--link"> Brooklyn Nets </a>
+    </div>
+
+</div>
+
+        <div class="card-group__sub-group">
+            <div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/5b/d0/who-reigns-supreme-entering-the-2019-20-nba-season_6epx84n87e1h13g5f2fn58pfk.jpg?t=1688077261&amp;w={width}" data-sizes="auto" alt="Who reigns supreme entering the 2019-20 NBA season?">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/5b/d0/who-reigns-supreme-entering-the-2019-20-nba-season_6epx84n87e1h13g5f2fn58pfk.jpg?t=1688077261&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> The 30 best players in the NBA </div>
+        <div class="card__author"> Micah Adams </div>
+    </div>
+    <a data-track="Click" title="The 30 best players in the NBA" data-id="https://ca.nba.com/news/who-are-the-best-nba-players-entering-2019-20-season/84sirywpo6cs1c5qailvs5sck" data-type="hero interaction" href="https://ca.nba.com/news/who-are-the-best-nba-players-entering-2019-20-season/84sirywpo6cs1c5qailvs5sck" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569412840000" datetime="2019-09-25T08:00:40-04:00"> 12h ago </span>
+            <a href="https://ca.nba.com/competition/nba/news/e2w9iicoifx689pzi5jqw7j4a" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+
+
+            <div class="card-group__sub-group--2nd">
+                <div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/64/fb/andre-iguodala-092419-ftr-gettyjpg_n8l1cml1jfl513zakllfvvnhc.jpg?t=1746935261&amp;w={width}" data-sizes="auto" alt="andre-iguodala-092419-ftr-getty.jpg">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/64/fb/andre-iguodala-092419-ftr-gettyjpg_n8l1cml1jfl513zakllfvvnhc.jpg?t=1746935261&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Trade destinations for Iguodala </div>
+        <div class="card__author"> Scott Rafferty </div>
+    </div>
+    <a data-track="Click" title="Trade destinations for Iguodala" data-id="https://ca.nba.com/news/trade-destinations-for-memphis-grizzlies-forward-andre-iguodala/1fplhahn58s3y1panutzc6s3pa" data-type="hero interaction" href="https://ca.nba.com/news/trade-destinations-for-memphis-grizzlies-forward-andre-iguodala/1fplhahn58s3y1panutzc6s3pa" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569411913000" datetime="2019-09-25T07:45:13-04:00"> 12h ago </span>
+            <a href="https://ca.nba.com/competition/nba/news/e2w9iicoifx689pzi5jqw7j4a" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/9e/7c/kevin-porter-jr-darius-garland-and-dylan-windler-could-all-see-significant-minutes-as-rookies_1sfc8twqihj191bj35pujeoefb.jpg?t=1401046749&amp;w={width}" data-sizes="auto" alt="Kevin Porter Jr., Darius Garland and Dylan Windler could all see significant minutes as rookies.">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/9e/7c/kevin-porter-jr-darius-garland-and-dylan-windler-could-all-see-significant-minutes-as-rookies_1sfc8twqihj191bj35pujeoefb.jpg?t=1401046749&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Do the Cavaliers have the next great backcourt? </div>
+        <div class="card__author"> Micah Adams </div>
+    </div>
+    <a data-track="Click" title="Do the Cavaliers have the next great backcourt?" data-id="https://ca.nba.com/news/nba-season-preview-2019-20-cleveland-cavaliers-darius-garland-collin-sexton-kevin-love/ar9uitpkn0zj1u0dvrfsn8xkg" data-type="hero interaction" href="https://ca.nba.com/news/nba-season-preview-2019-20-cleveland-cavaliers-darius-garland-collin-sexton-kevin-love/ar9uitpkn0zj1u0dvrfsn8xkg" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569418863000" datetime="2019-09-25T09:41:03-04:00"> 10h ago </span>
+            <a href="https://ca.nba.com/contestant/cleveland-cavaliers/news/ebl6btyqnbyqohs946reyviu" class="card__label card__label--link"> Cleveland Cavaliers </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/21/4e/lebron-james-los-angeles-lakers-nbae-gettyimages_4ry0mygvis1l13cfpgmhef0r8.jpg?t=1720785197&amp;w={width}" data-sizes="auto" alt="lebron-james-los-angeles-lakers-nbae-gettyimages">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/21/4e/lebron-james-los-angeles-lakers-nbae-gettyimages_4ry0mygvis1l13cfpgmhef0r8.jpg?t=1720785197&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Can LeBron and AD end Lakers&#039; playoff drought? </div>
+        <div class="card__author"> Kyle Irving </div>
+    </div>
+    <a data-track="Click" title="Can LeBron and AD end Lakers&#039; playoff drought?" data-id="https://ca.nba.com/news/nba-season-preview-2019-20-will-lebron-james-and-anthony-davis-end-the-los-angeles-lakers-playoff-drought/15rij5n9gzexk1ah93pyaa0dlu" data-type="hero interaction" href="https://ca.nba.com/news/nba-season-preview-2019-20-will-lebron-james-and-anthony-davis-end-the-los-angeles-lakers-playoff-drought/15rij5n9gzexk1ah93pyaa0dlu" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569407413000" datetime="2019-09-25T06:30:13-04:00"> 14h ago </span>
+            <a href="https://ca.nba.com/contestant/los-angeles-lakers/news/2ja1jlnhsy0ksuvvxzff3ky9e" class="card__label card__label--link"> Los Angeles Lakers </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/d1/a5/nba-jamscreens9-24jpg_50nqlfsqo8x410l9m8h4cius6.jpg?t=1664013261&amp;w={width}" data-sizes="auto" alt="NBA-JamScreens_9-24.jpg">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/d1/a5/nba-jamscreens9-24jpg_50nqlfsqo8x410l9m8h4cius6.jpg?t=1664013261&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> The scariest pick-and-roll duo in the NBA </div>
+        <div class="card__author"> Scott Rafferty </div>
+    </div>
+    <a data-track="Click" title="The scariest pick-and-roll duo in the NBA" data-id="https://ca.nba.com/news/los-angeles-lakers-duo-lebron-james-anthony-davis-scariest-pick-and-roll-tandem-in-the-nba/c05g4qsoncs11rnzzzx5y0tni" data-type="hero interaction" href="https://ca.nba.com/news/los-angeles-lakers-duo-lebron-james-anthony-davis-scariest-pick-and-roll-tandem-in-the-nba/c05g4qsoncs11rnzzzx5y0tni" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569406525000" datetime="2019-09-25T06:15:25-04:00"> 14h ago </span>
+            <a href="https://ca.nba.com/contestant/los-angeles-lakers/news/2ja1jlnhsy0ksuvvxzff3ky9e" class="card__label card__label--link"> Los Angeles Lakers </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/df/e6/nba-jamscreens9-22jpg_zfdlo34sl00012ce63driytg9.jpg?t=1424536813&amp;w={width}" data-sizes="auto" alt="NBA-JamScreens_9-22.jpg">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/df/e6/nba-jamscreens9-22jpg_zfdlo34sl00012ce63driytg9.jpg?t=1424536813&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Kawhi and PG are the new Jordan and Pippen </div>
+        <div class="card__author"> Matthew Blum </div>
+    </div>
+    <a data-track="Click" title="Kawhi and PG are the new Jordan and Pippen" data-id="https://ca.nba.com/news/kawhi-leonard-paul-george-defense-la-clippers/12acxoa8cuuzy1e1qidlsc8yub" data-type="hero interaction" href="https://ca.nba.com/news/kawhi-leonard-paul-george-defense-la-clippers/12acxoa8cuuzy1e1qidlsc8yub" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569394843000" datetime="2019-09-25T03:00:43-04:00"> 17h ago </span>
+            <a href="https://ca.nba.com/contestant/los-angeles-clippers/news/8dhx7ac7n30mwl2wgmpsuve14" class="card__label card__label--link"> Los Angeles Clippers </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/46/73/which-current-duo-would-you-pick-in-a-modern-version-of-nba-jam_2b9mkbqs3wdj1q59q2jnnrter.jpg?t=1632796749&amp;w={width}" data-sizes="auto" alt="Which current duo would you pick in a modern version of NBA Jam?">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/46/73/which-current-duo-would-you-pick-in-a-modern-version-of-nba-jam_2b9mkbqs3wdj1q59q2jnnrter.jpg?t=1632796749&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> NBA Jam Week: ranking all 30 top NBA duos </div>
+        <div class="card__author"> Micah Adams </div>
+    </div>
+    <a data-track="Click" title="NBA Jam Week: ranking all 30 top NBA duos" data-id="https://ca.nba.com/news/ranking-the-best-case-scenario-for-all-30-best-duos-entering-the-2019-20-nba-season/xru2wp19xi10135f234364iql" data-type="hero interaction" href="https://ca.nba.com/news/ranking-the-best-case-scenario-for-all-30-best-duos-entering-the-2019-20-nba-season/xru2wp19xi10135f234364iql" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569395729000" datetime="2019-09-25T03:15:29-04:00"> 17h ago </span>
+            <a href="https://ca.nba.com/competition/nba/news/e2w9iicoifx689pzi5jqw7j4a" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+
+            </div>
+        </div>
+
+        <div class="commercial commercial--has-background">
+            <div class="commercial__container commercial__container--in-card-group commercial__container--sticky js-offset-for-header">
+                <div data-role="ad" data-name="topMpu" class="commercial__ad commercial__top-mpu" data-slot-id="/67970281/DISPLAY_OWNED_GBL/NBA_Responsive_Perform/Homepage/Top_MPU" data-empty="true">
+    <div  data-label="Advertisement"  id="placement--5d8c08e273bc06.22899523" data-state="unloaded"></div>
+    <script type="text/javascript">
+        window.ads.push({"name":"topMpu","slotName":"\/67970281\/DISPLAY_OWNED_GBL\/NBA_Responsive_Perform\/Homepage\/Top_MPU","uuid":"placement--5d8c08e273bc06.22899523","label":"Advertisement","className":"commercial__ad commercial__top-mpu","defaultSize":[[300,600],[300,250]],"position":"Top_MPU","sizeMapping":[{"viewport":[760,100],"slot":[[300,600],[300,250]]},{"viewport":[0,0],"slot":[300,250]}],"lazyLoad":true,"amazonTam":true,"refreshOnBreakPointChange":true});
+    </script>
+</div>
+            </div>
+        </div>
+    </section>
+</section>
+<section class="section section--media-hub th-inverted">
+    <div class="grid">
+        <h2 class="header header--underline">NBA Video</h2>
+        <div class="card-group card-group--four-cards-player">
+            <div class="p0comp-card card card--type--video-player" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <div class="card__body">
+    <div class="card__video-player">
+        <script src="//player.performgroup.com/eplayer.js#43f43ae537d2e2f0879677ead6.n50i34x4q6sc1kylqkizd7lcv$videoid=4mf6domgdr9d14si7p82u65dm" async></script>
+    </div>
+    <div class="card__footer">
+        <h2 class="card__headline"> Paul Pierce in Australia for &#039;You&#039;re A Legend Tour&#039; </h2>
+    </div>
+</div>
+
+</div>
+
+            <div class="card-group__sub-group">
+                <div class="p0comp-card card card--type--video" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/javaImages/e8/71/0,,~17658344,00.jpeg?w={width}" data-sizes="auto" alt="">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/javaImages/e8/71/0,,~17658344,00.jpeg?w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Re-live KD&#039;s 50-point playoff performance </div>
+    </div>
+    <a href="https://ca.nba.com/videos/re-live-kds-50-point-playoff-performance/ez5s4rgs9fwq1cztnkv45rp32" class="card__link"></a>
+</article>
+<div class="card__footer">
+    <span class="card__published-date
+         js-timestamp "
+         datetime="2019-09-25T11:57:00-04:00"          data-timestamp="1569427020000"     >8h ago</span>
+
+            <a href="https://ca.nba.com/videos" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--video" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/javaImages/d6/71/0,,~17658326,00.jpeg?w={width}" data-sizes="auto" alt="">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/javaImages/d6/71/0,,~17658326,00.jpeg?w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Best of Kyrie from the 2018-2019 regular season </div>
+    </div>
+    <a href="https://ca.nba.com/videos/best-of-kyrie-from-the-2018-2019-regular-season/ga4g44ilr5671kow5jr01t3h8" class="card__link"></a>
+</article>
+<div class="card__footer">
+    <span class="card__published-date
+         js-timestamp "
+         datetime="2019-09-25T11:55:00-04:00"          data-timestamp="1569426900000"     >8h ago</span>
+
+            <a href="https://ca.nba.com/videos" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--video" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/javaImages/d8/71/0,,~17658328,00.jpeg?w={width}" data-sizes="auto" alt="">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/javaImages/d8/71/0,,~17658328,00.jpeg?w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Best of LeBron in 2018-19 </div>
+    </div>
+    <a href="https://ca.nba.com/videos/best-of-lebron-in-2018-19/bt2pz9w9d1111vz8qqzig2x7e" class="card__link"></a>
+</article>
+<div class="card__footer">
+    <span class="card__published-date
+         js-timestamp "
+         datetime="2019-09-25T11:45:00-04:00"          data-timestamp="1569426300000"     >8h ago</span>
+
+            <a href="https://ca.nba.com/videos" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--video" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/javaImages/d4/71/0,,~17658324,00.jpeg?w={width}" data-sizes="auto" alt="">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/javaImages/d4/71/0,,~17658324,00.jpeg?w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Best of Kawhi in the 2019 Playoffs </div>
+    </div>
+    <a href="https://ca.nba.com/videos/best-of-kawhi-in-the-2019-playoffs/su8bbts812g91o9z2i38h7tnl" class="card__link"></a>
+</article>
+<div class="card__footer">
+    <span class="card__published-date
+         js-timestamp "
+         datetime="2019-09-25T11:40:00-04:00"          data-timestamp="1569426000000"     >9h ago</span>
+
+            <a href="https://ca.nba.com/videos" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+
+            </div>
+        </div>
+        
+        <section class="card-group card-group--six-cards">
+            <div class="p0comp-card card card--type--video" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/javaImages/d5/6b/0,,~17656789,00.jpeg?w={width}" data-sizes="auto" alt="">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/javaImages/d5/6b/0,,~17656789,00.jpeg?w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Dropping dimes with Ben Simmons </div>
+    </div>
+    <a href="https://ca.nba.com/videos/dropping-dimes-with-ben-simmons/5vcv5s2gciek1dbra34stwutc" class="card__link"></a>
+</article>
+<div class="card__footer">
+    <span class="card__published-date
+         js-timestamp "
+         datetime="2019-09-24T19:55:00-04:00"          data-timestamp="1569369300000"     >09/24/2019</span>
+
+            <a href="https://ca.nba.com/videos" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--video" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/javaImages/b2/6b/0,,~17656754,00.jpeg?w={width}" data-sizes="auto" alt="">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/javaImages/b2/6b/0,,~17656754,00.jpeg?w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Don&#039;t try scoring on The Greek Freak </div>
+    </div>
+    <a href="https://ca.nba.com/videos/dont-try-scoring-on-the-greek-freak/r3g3by0v3a0b1p4du50s91z96" class="card__link"></a>
+</article>
+<div class="card__footer">
+    <span class="card__published-date
+         js-timestamp "
+         datetime="2019-09-24T19:47:00-04:00"          data-timestamp="1569368820000"     >09/24/2019</span>
+
+            <a href="https://ca.nba.com/videos" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--video" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/javaImages/a4/6b/0,,~17656740,00.jpeg?w={width}" data-sizes="auto" alt="">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/javaImages/a4/6b/0,,~17656740,00.jpeg?w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> James Harden&#039;s top 10 plays </div>
+    </div>
+    <a href="https://ca.nba.com/videos/james-hardens-top-10-plays/1c3ekq87qzrn51jkyh7d2u1zbi" class="card__link"></a>
+</article>
+<div class="card__footer">
+    <span class="card__published-date
+         js-timestamp "
+         datetime="2019-09-24T19:38:00-04:00"          data-timestamp="1569368280000"     >09/24/2019</span>
+
+            <a href="https://ca.nba.com/videos" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--video" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/javaImages/7b/6b/0,,~17656699,00.jpeg?w={width}" data-sizes="auto" alt="">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/javaImages/7b/6b/0,,~17656699,00.jpeg?w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Best of Steph Curry </div>
+    </div>
+    <a href="https://ca.nba.com/videos/best-of-steph-curry/1bxnniq88ohy81c013dll40kfx" class="card__link"></a>
+</article>
+<div class="card__footer">
+    <span class="card__published-date
+         js-timestamp "
+         datetime="2019-09-24T18:24:00-04:00"          data-timestamp="1569363840000"     >09/24/2019</span>
+
+            <a href="https://ca.nba.com/videos" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--video" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/javaImages/90/9/0,,~17631632,00.jpeg?w={width}" data-sizes="auto" alt="">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/javaImages/90/9/0,,~17631632,00.jpeg?w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Donovan Mitchell records 16 points, 10 assists in win over Poland </div>
+    </div>
+    <a href="https://ca.nba.com/videos/donovan-mitchell-records-16-points-10-assists-in-win-over/15lg1r8wfstshzsvz1m0ggh12" class="card__link"></a>
+</article>
+<div class="card__footer">
+    <span class="card__published-date
+         js-timestamp "
+         datetime="2019-09-14T13:40:00-04:00"          data-timestamp="1568482800000"     >09/14/2019</span>
+
+            <a href="https://ca.nba.com/videos" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--video" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/javaImages/85/9/0,,~17631621,00.jpeg?w={width}" data-sizes="auto" alt="">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/javaImages/85/9/0,,~17631621,00.jpeg?w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Bogdan Bogdanovic scores 31 points in win over Czech Republic </div>
+    </div>
+    <a href="https://ca.nba.com/videos/bogdan-bogdanovic-scores-31-points-in-win-over-czech/1h24acyyyk8d51o9nytorgb36q" class="card__link"></a>
+</article>
+<div class="card__footer">
+    <span class="card__published-date
+         js-timestamp "
+         datetime="2019-09-14T13:38:00-04:00"          data-timestamp="1568482680000"     >09/14/2019</span>
+
+            <a href="https://ca.nba.com/videos" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+
+        </section>
+        <a href="https://ca.nba.com/videos" class="button button--primary button--inverted button--next">
+            <span>More Video</span>
+        </a>
+    </div>
+</section>
+<section class="grid section--more-news">
+    <h2 class="header header--underline">More from NBA.com</h2>
+    <section class="card-group card-group--eight-cards-commercial">
+        <div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/2d/24/nba-canada-rookies_scy6yntuipwh16qv0tg02qnx9.jpg?t=1335128813&amp;w={width}" data-sizes="auto" alt="NBA-Canada-Rookies">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/2d/24/nba-canada-rookies_scy6yntuipwh16qv0tg02qnx9.jpg?t=1335128813&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Projecting the impact of Canadian rookies </div>
+        <div class="card__author"> Gilbert McGregor </div>
+    </div>
+    <a data-track="Click" title="Projecting the impact of Canadian rookies" data-id="https://ca.nba.com/news/projecting-canadian-rookies-impact-rj-barrett-nickeil-alexander-walker-brandon-clarke-kabengele-brazdeikis-shayok-dort/1979zy8zm1h5z1m5ekfj82jqu1" data-type="hero interaction" href="https://ca.nba.com/news/projecting-canadian-rookies-impact-rj-barrett-nickeil-alexander-walker-brandon-clarke-kabengele-brazdeikis-shayok-dort/1979zy8zm1h5z1m5ekfj82jqu1" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569384914000" datetime="2019-09-25T00:15:14-04:00"> 20h ago </span>
+            <a href="https://ca.nba.com/competition/nba/news/e2w9iicoifx689pzi5jqw7j4a" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/58/1c/durant-092419-ftr-gettyjpg_xpx6wyg11t1g13jf0qe50lfst.jpg?t=1758781261&amp;w={width}" data-sizes="auto" alt="durant-092419-ftr-getty.jpg">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/58/1c/durant-092419-ftr-gettyjpg_xpx6wyg11t1g13jf0qe50lfst.jpg?t=1758781261&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Nets aren&#039;t expecting Durant to play this season </div>
+        <div class="card__author"> Scott Rafferty </div>
+    </div>
+    <a data-track="Click" title="Nets aren&#039;t expecting Durant to play this season" data-id="https://ca.nba.com/news/brooklyn-nets-arent-expecting-kevin-durant-to-play-return-in-the-2019-20-nba-season/bd14reap7rkw1qbw82b3byypj" data-type="hero interaction" href="https://ca.nba.com/news/brooklyn-nets-arent-expecting-kevin-durant-to-play-return-in-the-2019-20-nba-season/bd14reap7rkw1qbw82b3byypj" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569398415000" datetime="2019-09-25T04:00:15-04:00"> 16h ago </span>
+            <a href="https://ca.nba.com/contestant/brooklyn-nets/news/a6a8ao1fyhpxswr8sizvg9hwa" class="card__label card__label--link"> Brooklyn Nets </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/40/14/nikola-jokic-091819-ftr-gettyjpg_o6c7o55wcqeo1kgrdea7015dh.jpg?t=1157806621&amp;w={width}" data-sizes="auto" alt="nikola-jokic-091819-ftr-getty.jpg">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/40/14/nikola-jokic-091819-ftr-gettyjpg_o6c7o55wcqeo1kgrdea7015dh.jpg?t=1157806621&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> How Nikola Jokic can win MVP </div>
+        <div class="card__author"> Scott Rafferty </div>
+    </div>
+    <a data-track="Click" title="How Nikola Jokic can win MVP" data-id="https://ca.nba.com/news/how-denver-nuggets-nikola-jokic-can-win-mvp-in-the-2019-20-nba-season/1okav6bdsh2ct1jsbww6eif83w" data-type="hero interaction" href="https://ca.nba.com/news/how-denver-nuggets-nikola-jokic-can-win-mvp-in-the-2019-20-nba-season/1okav6bdsh2ct1jsbww6eif83w" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569308415000" datetime="2019-09-24T03:00:15-04:00"> 09/24/2019 </span>
+            <a href="https://ca.nba.com/contestant/denver-nuggets/news/dyiwt9mhy41jesv1pwn8a38jb" class="card__label card__label--link"> Denver Nuggets </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/29/3a/nba-jamscreens9-23v2jpg_13kz61qwpnbaj13m1z4bup9mng.jpg?t=1587494181&amp;w={width}" data-sizes="auto" alt="NBA-JamScreens_9-23v2.jpg">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/29/3a/nba-jamscreens9-23v2jpg_13kz61qwpnbaj13m1z4bup9mng.jpg?t=1587494181&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Fact or Fiction for biggest Rockets storylines </div>
+        <div class="card__author"> NBA.com Staff </div>
+    </div>
+    <a data-track="Click" title="Fact or Fiction for biggest Rockets storylines" data-id="https://ca.nba.com/news/fact-or-fiction-biggest-houston-rockets-storylines-entering-2019-20-nba-season/1wjq0xd2hkmr91cyy4xz5frcsw" data-type="hero interaction" href="https://ca.nba.com/news/fact-or-fiction-biggest-houston-rockets-storylines-entering-2019-20-nba-season/1wjq0xd2hkmr91cyy4xz5frcsw" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569320137000" datetime="2019-09-24T06:15:37-04:00"> 09/24/2019 </span>
+            <a href="https://ca.nba.com/contestant/houston-rockets/news/asgv2w5m47fumtkhyazfn574f" class="card__label card__label--link"> Houston Rockets </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/fc/f6/giannis-antetokounmpo_10hdurxiho90l1wjznt5hjz4h5.jpg?t=-284470726&amp;w={width}" data-sizes="auto" alt="Giannis Antetokounmpo">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/fc/f6/giannis-antetokounmpo_10hdurxiho90l1wjznt5hjz4h5.jpg?t=-284470726&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Bucks fined $50,000 for Giannis &#039;supermax&#039; comment </div>
+        <div class="card__author"> Official release </div>
+    </div>
+    <a data-track="Click" title="Bucks fined $50,000 for Giannis &#039;supermax&#039; comment" data-id="https://ca.nba.com/news/nba-fines-milwaukee-bucks-for-comments-about-offering-supermax-to-giannis-antetokounmpo/160ds9ufbl70m1sqwxj4e7vpg0" data-type="hero interaction" href="https://ca.nba.com/news/nba-fines-milwaukee-bucks-for-comments-about-offering-supermax-to-giannis-antetokounmpo/160ds9ufbl70m1sqwxj4e7vpg0" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569353571000" datetime="2019-09-24T15:32:51-04:00"> 09/24/2019 </span>
+            <a href="https://ca.nba.com/competition/nba/news/e2w9iicoifx689pzi5jqw7j4a" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/29/b0/nba-canada-series-2019jpg_19hlmdwnu5h1n152j41qroglll.jpg?t=1668599261&amp;w={width}" data-sizes="auto" alt="NBA Canada Series 2019.jpg">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/29/b0/nba-canada-series-2019jpg_19hlmdwnu5h1n152j41qroglll.jpg?t=1668599261&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> NBA announces exciting events in Vancouver </div>
+        <div class="card__author"> Official release </div>
+    </div>
+    <a data-track="Click" title="NBA announces exciting events in Vancouver" data-id="https://ca.nba.com/news/kenny-smith-richard-jefferson-natalie-achonwa-to-unite-in-vancouver-for-new-nba-events/1azpxiuxva7hv13ja6va1szxko" data-type="hero interaction" href="https://ca.nba.com/news/kenny-smith-richard-jefferson-natalie-achonwa-to-unite-in-vancouver-for-new-nba-events/1azpxiuxva7hv13ja6va1szxko" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569335305000" datetime="2019-09-24T10:28:25-04:00"> 09/24/2019 </span>
+            <a href="https://ca.nba.com/competition/nba/news/e2w9iicoifx689pzi5jqw7j4a" class="card__label card__label--link"> NBA </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/f3/fe/ad-and-lebron-are-the-latest-dynamic-duo-for-the-lakers_1gocmviwxe8os1aj4t796ysv6v.jpg?t=-1167711216&amp;w={width}" data-sizes="auto" alt="AD and LeBron are the latest dynamic duo for the Lakers">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/f3/fe/ad-and-lebron-are-the-latest-dynamic-duo-for-the-lakers_1gocmviwxe8os1aj4t796ysv6v.jpg?t=-1167711216&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Where AD and LeBron rank among all-time Laker duos </div>
+        <div class="card__author"> NBA.com Staff </div>
+    </div>
+    <a data-track="Click" title="Where AD and LeBron rank among all-time Laker duos" data-id="https://ca.nba.com/news/ranking-all-time-duos-los-angeles-lakers-lebron-james-anthony-davis-kobe-bryant-shaquille-oneal-magic-johnson-kareem-abdul-jabbar/svkph37hufg615wv2xrlcgkxj" data-type="hero interaction" href="https://ca.nba.com/news/ranking-all-time-duos-los-angeles-lakers-lebron-james-anthony-davis-kobe-bryant-shaquille-oneal-magic-johnson-kareem-abdul-jabbar/svkph37hufg615wv2xrlcgkxj" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569319200000" datetime="2019-09-24T06:00:00-04:00"> 09/24/2019 </span>
+            <a href="https://ca.nba.com/contestant/los-angeles-lakers/news/2ja1jlnhsy0ksuvvxzff3ky9e" class="card__label card__label--link"> Los Angeles Lakers </a>
+    </div>
+
+</div>
+<div class="p0comp-card card card--type--article" data-module="perform/p0/components/card" data-settings="&quot;&quot;">
+    <article class="card__body">
+    <figure class="widget-perform-image__container card__image" itemscope itemtype="http://schema.org/ImageObject">
+    <img class="lazyload widget-perform-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/98/2c/ibaka30th-birthdayftr_1wirnm7mabro41u5xrwg9lycm2.png?t=1084872813&amp;w={width}" data-sizes="auto" alt="Ibaka_30th-Birthday_FTR">
+    <span class="widget-perform-image__url" itemprop="url">https://images.daznservices.com/di/library/NBA_Global_CMS_image_storage/98/2c/ibaka30th-birthdayftr_1wirnm7mabro41u5xrwg9lycm2.png?t=1084872813&w=500</span>
+</figure>
+
+    <div class="card__inner-body">
+        <div class="card__headline"> Ibaka&#039;s only getting better with time </div>
+        <div class="card__author"> Gilbert McGregor </div>
+    </div>
+    <a data-track="Click" title="Ibaka&#039;s only getting better with time" data-id="https://ca.nba.com/news/toronto-raptors-serge-ibaka-30th-birthday-whats-in-store-expectations-stats-impact-role/tfzvd7vz77z21p8s6g651bdir" data-type="hero interaction" href="https://ca.nba.com/news/toronto-raptors-serge-ibaka-30th-birthday-whats-in-store-expectations-stats-impact-role/tfzvd7vz77z21p8s6g651bdir" class="card__link"></a>
+</article>
+  <div class="card__footer ">
+    <span class="card__published-date js-timestamp" data-timestamp="1569052808000" datetime="2019-09-21T04:00:08-04:00"> 09/21/2019 </span>
+            <a href="https://ca.nba.com/contestant/toronto-raptors/news/dxjosqw1acmrjm1gt2wmis1ru" class="card__label card__label--link"> Toronto Raptors </a>
+    </div>
+
+</div>
+
+        <div class="commercial commercial--has-background">
+            <div class="commercial__container commercial__container--in-card-group commercial__container--sticky js-offset-for-header">
+                <div data-role="ad" data-name="bottomMpu" class="commercial__ad commercial__bottom-mpu" data-slot-id="/67970281/DISPLAY_OWNED_GBL/NBA_Responsive_Perform/Homepage/Bottom_MPU" data-empty="true">
+    <div  data-label="Advertisement"  id="placement--5d8c08e273e640.78954692" data-state="unloaded"></div>
+    <script type="text/javascript">
+        window.ads.push({"name":"bottomMpu","slotName":"\/67970281\/DISPLAY_OWNED_GBL\/NBA_Responsive_Perform\/Homepage\/Bottom_MPU","uuid":"placement--5d8c08e273e640.78954692","label":"Advertisement","className":"commercial__ad commercial__bottom-mpu","defaultSize":[[300,600],[300,250]],"position":"Bottom_MPU","sizeMapping":[{"viewport":[760,100],"slot":[[300,600],[300,250]]},{"viewport":[0,0],"slot":[300,250]}],"lazyLoad":true,"amazonTam":true,"refreshOnBreakPointChange":true});
+    </script>
+</div>
+            </div>
+        </div>
+    </section>
+    <a href="https://ca.nba.com/news" class="button button--primary button--next">
+        <span>More News</span>
+    </a>
+</section>
+
+        <div data-module="navigation" data-settings="{&quot;footerCopy&quot;:&quot;Copyright \u00a9 2018 NBA. All rights reserved.&quot;}" class="nbap-widget-navigation">
+    <div class="nbap-nav--footer">
+        <div class="nbap-nav--footer__svg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 338.867 768" height="768" width="100"><path d="M259.32 0H79.494C35.63 0 0 35.681 0 79.49v608.906C0 732.275 35.629 768 79.494 768h179.698c43.857 0 79.67-35.725 79.67-79.604V79.489C338.861 35.681 303.158 0 259.32 0" fill="#fff"/><path d="M214.713 140.792l.188 2.599c5.486 3.193 8.263 5.796 13.788 9.357 14.67 9.228 32.734 25.636 30.455 82.176 4.11 12.33 5.928 36.561 9.727 44.33 7.636 15.142 12.736 24.995 14.966 39.295 0 0 2.203 22.252 5.074 23.86 15.162 3.423 10.782 4.916 12.998 7.515 2.354 3.045 11.107 2.904 11.107 11.063 3.041 4.065 5.284 8.289 6.997 12.684V79.489c0-33.525-27.269-60.746-60.694-60.746h-58.1c9.336 3.312 14.598 7.229 17.674 13.445 7.506.645 16.426 17.46 2.528 42.297 6.155 4.098 1.354 10.222-3.062 17.332-1.294 2.283-2.708 6.328-6.818 6.06-5.274 11.098-11.649 21.854-16.46 22.534-1.46 1.8-2.52 6.576-.325 8.818 7.072 3.172 15.69 7.519 19.957 11.563M320.01 413.53c-7.88 20-27.505 34.134-50.427 34.134-30.003 0-54.184-24.25-54.184-54.157 0-25.552 17.565-46.98 41.404-52.703-6.248-15.628-19.431-40.96-23.348-49.276-3.707-8.25-12.64-59.77-14.564-69.96-.438-2.227-23.374 13.31-23.418 14.27-1.341 1.3-17.209 42.74-17.876 44.978-.32 1.415-.358 6.948-.358 6.948s7.802.964 12.293 14.577c4.443 13.595 17.995 63.226 17.995 63.226s-3.668 3.794-3.826 3.562c17.114 57.294 11.134 81.952 18.814 98.75 9.652 23.681 12.254 20.578 20.534 40.478 5.942 14.498 12.566 71.543 14.779 74.071 9.24 11.71 14.213 20.868 14.213 27.475 0 6.646-7.825 26.292-4.973 37.736 1.73 6.729 2.633 21.822 5.77 24.688 0 0 2.874 5.665 1.463 8.18-.408.872-1.226 2.186-.858 3.22 5.094 17.994 21.542 48.671-5.096 64.738h.57c29.074-4.5 51.094-29.442 51.094-60.068V413.53" fill="#ca1c2e"/><path d="M251.588 676.73c-9.765-8.715-3.241-12.4-3.632-15.84-6.44-26.598-27.567-42.686-16.64-51.466-2.695-8.784-8.184-19.812-7.983-19.795-32.925-18.905-60.961-49.618-65.724-54.122-5.774-6.274-15.61-12.578-17.458-17.674-7.914-7.269-46.722-62.32-55.76-82.592l-15.752-2.225c-7.164-29.272-31.085-53.803-31.676-83.148-.224-11.093 5.024-34.863 6.983-39.603 1.915-4.806 11.08-12.701 11.08-12.701v-7.852c-34.358.977-24.478-2.532-30.401-15.89-4.158-9.249-1.18-11.282.32-17.697 4.609-18.936 19.925-48.137 26.26-61.408 1.937-6.694 8.562-22.838 8.562-22.838 25.608-52.147 35.168-48.314 65.584-51.252l1.498-2.156c30.476-1.32 25.486-3.62 29.788-32.979-4.442 1.907-5.761-9.192-5.761-9.192-2.428-16.71 4.617-13.543 7.965-13.875.714-27.47 3.531-36.116 23.343-43.686H79.531c-33.587 0-60.79 27.225-60.79 60.786v608.87c0 33.6 27.203 60.822 60.79 60.822h179.79c-20.584-11.12-8.434-32.295-7.733-72.488" fill="#27418d"/><path d="M69.844 710.952H57.007v-110.24h20.33l16.344 90.325c-1.375-21.612-3.217-47.706-3.217-69.94v-20.385h12.841v110.24H84.663l-16.34-88.323c1.07 20.386 1.521 36.605 1.521 53.586zm113.048-97.884h-.761c-.915 13.275-2.75 36.59-3.364 44.001l-1.672 18.987h11.454l-1.684-18.987c-.613-7.562-2.749-30.568-3.973-44.001m6.577 75.495h-13.293l-1.843 22.39H159.52l13.293-110.241h21.083l12.83 110.24H191.3zm-61.265-73.955v36.439h5.5c5.195 0 6.57-1.86 6.57-7.875v-21.15c0-5.102-1.537-7.414-6.42-7.414zm0 48.478v33.969h5.65c5.045 0 6.42-2.628 6.42-7.875v-18.682c0-5.407-1.68-7.412-6.57-7.412zm-14.664 47.866v-110.24h21.384c12.37 0 20.017 6.643 20.017 22.083v16.366c0 10.025-3.054 15.128-7.341 17.599 4.287 2.937 7.341 7.879 7.341 16.212v16.061c0 15.128-8.102 21.92-20.017 21.92H113.54" fill="#fff"/></svg>
+        </div>
+        <ul class="nbap-nav--footer__nav nbap-nav">
+                                                <li class="nbap-nav--footer__menu-item">
+                        <a class="nbap-nav--footer__link" href="https://global.nba.com/privacy-policy/"  target="_blank" rel="noopener noreferrer" >Privacy Policy</a>
+                    </li>
+                                    <li class="nbap-nav--footer__menu-item">
+                        <a class="nbap-nav--footer__link" href="https://global.nba.com/terms-of-use/"  target="_blank" rel="noopener noreferrer" >Terms of Use</a>
+                    </li>
+                                    <li class="nbap-nav--footer__menu-item">
+                        <a class="nbap-nav--footer__link" href="mailto:NBAGlobalFeedback@dazn.com" >Contact Us</a>
+                    </li>
+                                    <li class="nbap-nav--footer__menu-item">
+                        <a class="nbap-nav--footer__link" href="https://ca.nba.com/news/nba-nbacom-authors-writers-staff-canada-mexico-australia-india-spain-argentina-japan/jhv9xb04y44j1smm4nr00ogtu" >NBA.com Global Staff</a>
+                    </li>
+                                    </ul>
+        <div class="nbap-nav--footer__copy">
+            <p class="nbap-nav--footer__text">Copyright © 2018 NBA. All rights reserved.</p>
+        </div>
+    </div>
+    <div class="nbap-nav__spacer--footer"></div>
+</div>
+
+        
+        <script type="text/javascript">
+                    window.loggingEnabled = false;
+                </script>
+
+        <script src="https://ca.nba.com/assets/js/common.js?v=3.22.0"></script>
+
+        
+        <script src="https://ca.nba.com/assets/js/page-home-page.js?v=3.22.0"></script>
+
+
+                <script type="text/javascript">_satellite.pageBottom();</script>
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"dddd82eb94","applicationID":"121561738","transactionName":"MQEBYhRVXkAEVEJZDghLIlUSXV9dSl9ZXQQ2BQRT","queueTime":0,"applicationTime":389,"atts":"HUYCFFxPTU4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
